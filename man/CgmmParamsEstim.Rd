@@ -1,7 +1,7 @@
 \name{CgmmParametersEstim}
 \alias{CgmmParametersEstim}
 \title{
-The generalised method of moment with a continuum of moment conditions
+The generalised method of moments with a continuum of moment conditions
 }
 \description{
 Cgmm method of Carrasco and Florens to estimate the 4 parameters of
@@ -12,10 +12,10 @@ problem is solved by a regularisation technique.
 }
 \usage{
 CgmmParametersEstim(x, type = c("2S", "IT", "Cue"), alphaReg = 0.01,
-                    subdivisions=50,
+                    subdivisions = 50,
                     IntegrationMethod = c("Uniform", "Simpson"),
                     randomIntegrationLaw = c("unif", "norm"),
-                    s_min=0,s_max = 1,
+                    s_min = 0, s_max = 1,
                     theta0 = NULL,
                     IterationControl = list(),
                     pm = 0, PrintTime = FALSE,...)
@@ -88,36 +88,36 @@ CgmmParametersEstim(x, type = c("2S", "IT", "Cue"), alphaReg = 0.01,
   function to minimise is given by:
   \deqn{obj(\theta)=\overline{\underline{v}^{\prime}}(\theta)[\alpha_{Reg} \mathcal{I}_n+C^2]^{-1}\underline{v}(\theta)}
  where:
-  \describe{
-    \item{\eqn{\underline{v}=[v_1,\ldots,v_n]^{\prime}} ;}{\eqn{v_i(\theta)=\int_I \overline{g_i}(t;\hat{\theta}^1_n) \hat{g}(t;\theta) \pi(t) dt}}
-    \item{\eqn{I_n}}{is the identity matrix of size \eqn{n}}
-    \item{\eqn{C}}{is a \eqn{n \times n} matrix with (i,j) elements given by
-      \eqn{c_{ij}=\frac{1}{n-4}\int_I \overline{g_i}(t;\hat{\theta}^1_n) g_j(t;\hat{\theta}^1_n) \pi(t) dt}}
-    }
-    To compute C and \eqn{v_i()} we will use the function
-    \code{\link{IntegrateRandomVectorsProduct}}.
-    %\cr\cr
-    \bold{The IterationControl}
-    %\cr\cr
-    If \code{type="IT"} or \code{type="Cue"} is selected, user can control each
-    iteration by setting up the \code{list} \code{IterationControl} which
-    contains the following elements:
-    \describe{
-      \item{\code{NbIter}:}{maximum number of iteration. The loop stops when \code{NBIter}
-	is reached; default=10}
-      \item{\code{PrintIterlogical}:}{if set to TRUE the value of the current
-	parameter estimation is printed to the screen at each iteration; default=TRUE}
-      \item{\code{RelativeErrMax}:}{the loop stops if the relative error between two
-	consecutive estimation is smaller then
-	\code{RelativeErrMax}; default=1e-3}
-    }
-  }
-  \value{
-    Returns a list with the following elements:
-    \item{Estim}{output of the optimisation function}
-    \item{duration}{estimation duration in numerical format}
-    \item{method}{\code{character} describing the method used}
-  }
+ \describe{
+   \item{\eqn{\underline{v}=[v_1,\ldots,v_n]^{\prime}} ;}{\eqn{v_i(\theta)=\int_I \overline{g_i}(t;\hat{\theta}^1_n) \hat{g}(t;\theta) \pi(t) dt}}
+   \item{\eqn{I_n}}{is the identity matrix of size \eqn{n}}
+   \item{\eqn{C}}{is a \eqn{n \times n} matrix with (i,j) elements given by
+     \eqn{c_{ij}=\frac{1}{n-4}\int_I \overline{g_i}(t;\hat{\theta}^1_n) g_j(t;\hat{\theta}^1_n) \pi(t) dt}}
+ }
+ To compute C and \eqn{v_i()} we will use the function
+ \code{\link{IntegrateRandomVectorsProduct}}.
+ %\cr\cr
+ \bold{The IterationControl}
+ %\cr\cr
+ If \code{type="IT"} or \code{type="Cue"} is selected, user can control each
+ iteration by setting up the \code{list} \code{IterationControl} which
+ contains the following elements:
+ \describe{
+   \item{\code{NbIter}:}{maximum number of iteration. The loop stops when \code{NBIter}
+     is reached; default=10}
+   \item{\code{PrintIterlogical}:}{if set to TRUE the value of the current
+     parameter estimation is printed to the screen at each iteration; default=TRUE}
+   \item{\code{RelativeErrMax}:}{the loop stops if the relative error between two
+     consecutive estimation is smaller then
+     \code{RelativeErrMax}; default=1e-3}
+ }
+}
+\value{
+  Returns a list with the following elements:
+  \item{Estim}{output of the optimisation function}
+  \item{duration}{estimation duration in numerical format}
+  \item{method}{\code{character} describing the method used}
+}
 
 \references{
   % bibentry: carrasco2000generalization
@@ -156,26 +156,30 @@ Mimeo. University of Montreal.
 }
 
 \seealso{
-\code{\link{Estim}}, \code{\link{IntegrateRandomVectorsProduct}}
+  \code{\link{Estim}},
+  \code{\link{GMMParametersEstim}},
+  \code{\link{IntegrateRandomVectorsProduct}}
 }
-\examples{ %CHECK
+\examples{
 ## general inputs
-theta <- c(1.45,0.55,1,0)
+theta <- c(1.45, 0.55, 1, 0)
 pm <- 0
-set.seed(2345);x <- rstable(50,theta[1],theta[2],theta[3],theta[4],pm)
+set.seed(2345)
+x <- rstable(50, theta[1], theta[2], theta[3], theta[4], pm)
 
 ## GMM specific params
-alphaReg=0.01
-subdivisions=20
-randomIntegrationLaw="unif"
-IntegrationMethod="Uniform"
+alphaReg <- 0.01
+subdivisions <- 20
+randomIntegrationLaw <- "unif"
+IntegrationMethod <- "Uniform"
 
 ## Estimation
-twoS <- CgmmParametersEstim(x=x,type="2S",alphaReg=alphaReg,
-                          subdivisions=subdivisions,
-                          IntegrationMethod=IntegrationMethod,
-                          randomIntegrationLaw=randomIntegrationLaw,
-                          s_min=0,s_max=1,theta0=NULL,
-                          pm=pm,PrintTime=TRUE)
+twoS <- CgmmParametersEstim(x = x, type = "2S", alphaReg = alphaReg, 
+                          subdivisions = subdivisions, 
+                          IntegrationMethod = IntegrationMethod, 
+                          randomIntegrationLaw = randomIntegrationLaw, 
+                          s_min = 0, s_max = 1, theta0 = NULL, 
+                          pm = pm, PrintTime = TRUE)
+twoS
 }
 \keyword{Estim-functions}

@@ -2,7 +2,7 @@
 \alias{StableEstim-package}
 \docType{package}
 \title{
-  stable law estimation functions
+  Stable law estimation functions
 }
 \description{
 
@@ -109,8 +109,9 @@ Besbeas P and Morgan B (2008).
 \emph{Statistics and Computing}, \bold{18}(2), pp. 219--231.
 % end:bibentry:all
 }
-\keyword{package}
 \seealso{
- \code{.mleStableFit}, \code{.qStableFit}, \code{stabledist}
+  \code{.mleStableFit},
+  \code{.qStableFit},
+  \code{stabledist}
 }
-
+\keyword{package}

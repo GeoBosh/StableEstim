@@ -1,0 +1,47 @@
+reference:
+  - title: "StableEstim overview"
+    contents:
+      - StableEstim-package
+  - title: "Estimation of stable laws"
+    contents:
+      - Estim
+      - CgmmParametersEstim
+      - GMMParametersEstim
+      - IGParametersEstim
+      - KoutParametersEstim
+      - MLParametersEstim
+      - McCullochParametersEstim
+      - Estim_Simulation
+      - get.abMat
+  - title: "CF of stable distributions"
+    contents:
+      - ComplexCF
+      - ComputeFirstRootRealeCF
+      - jacobianComplexCF
+      - sampleComplexCFMoment
+      - sampleRealCFMoment
+  - title: "Regularisation and parameter tuning"
+    contents:
+      - RegularisedSol
+      - IntegrateRandomVectorsProduct
+      - ComputeBest_t
+      - ComputeBest_tau
+  - title: "Classes"
+    contents:
+      - "Best_t-class"
+      - "Estim-class"
+  - title: "Summaries"
+    contents:
+      - get.StatFcts    
+      - StatFcts
+      - TexSummary
+  - title: "Other"
+    contents:
+      - expect_almost_equal
+      - ConcatFiles
+      - ComputeStatObjectFromFiles
+      - ComputeDuration
+      - getTime_
+      - PrintDuration
+      - PrintEstimatedRemainingTime
+

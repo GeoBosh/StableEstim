@@ -1,22 +1,21 @@
 \name{sampleComplexCFMoment}
 \alias{sampleComplexCFMoment}
-
 \title{
-  Complex moment condition based on the characteristic function.
+  Complex moment condition based on the characteristic function
 }
 \description{
-  Computes the moment condition based on the characteristic function as a complexl vector.
+  Computes the moment condition based on the characteristic function as
+  a complexl vector. 
 }
 \usage{
 sampleComplexCFMoment(x, t, theta, pm = 0)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
  \item{x}{
    vector of data where the ecf is computed.
  }
  \item{t}{
-   Vector of (real) numbers where the CF is evaluated; numeric
+   vector of (real) numbers where the CF is evaluated; numeric.
  }
  \item{theta}{	
    Vector of parameters of the stable law; vector of length 4.
@@ -39,23 +38,24 @@ sampleComplexCFMoment(x, t, theta, pm = 0)
   The function compute the vector of difference between the eCF and the CF at a set of given point \code{t}.
 }
 \value{
-  Returns a complex vector of \code{length(t)}.
+  a complex vector of \code{length(t)}.
 }
 \seealso{
-  	\code{\link{ComplexCF}},\code{\link{sampleRealCFMoment}}
+  \code{\link{ComplexCF}},
+  \code{\link{sampleRealCFMoment}}
 }
 \examples{
 ## define the parameters
- nt <- 10   
- t <- seq(0.1,3,length.out=nt)
- theta <- c(1.5,0.5,1,0)
+nt <- 10   
+t <- seq(0.1, 3, length.out = nt)
+theta <- c(1.5, 0.5, 1, 0)
 pm <- 0
 
-set.seed(222);x=rstable(200,theta[1],theta[2],theta[3],theta[4],pm)
+set.seed(222)
+x <- rstable(200, theta[1], theta[2], theta[3], theta[4], pm)
 
-# Compute the characteristic function
-CFMC <- sampleComplexCFMoment(x=x,t=t,theta=theta,pm=pm)
-
+## Compute the characteristic function
+CFMC <- sampleComplexCFMoment(x = x, t = t, theta = theta, pm = pm)
+CFMC
 }
-
 \keyword{stable-functions}

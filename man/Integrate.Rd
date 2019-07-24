@@ -1,10 +1,10 @@
 \name{IntegrateRandomVectorsProduct}
 \alias{IntegrateRandomVectorsProduct}
 \title{
- Integrate Ranndom vectors product
+ Integrate random vectors product
 }
 \description{
-Computes the integral of two random vector.
+Computes the integral of two random vectors.
 }
 \usage{
 IntegrateRandomVectorsProduct(f_fct, X, g_fct, Y, s_min, s_max,
@@ -13,7 +13,6 @@ IntegrateRandomVectorsProduct(f_fct, X, g_fct, Y, s_min, s_max,
                               randomIntegrationLaw = c("norm","unif"),
                               ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{f_fct}{
     Function object with signature \code{f_fct=function(s,X)} and
@@ -22,7 +21,7 @@ IntegrateRandomVectorsProduct(f_fct, X, g_fct, Y, s_min, s_max,
     is evaluated. 
   }
   \item{X}{
-    Random vector where the function \code{f_fct} is evaluated. See details
+    Random vector where the function \code{f_fct} is evaluated. See Details.
   }
   \item{g_fct}{
     Function object with signature \code{g_fct=function(s,Y)} and
@@ -31,10 +30,10 @@ IntegrateRandomVectorsProduct(f_fct, X, g_fct, Y, s_min, s_max,
     is evaluated.
   }
   \item{Y}{
-    Random vector where the function \code{g_fct} is evaluated. See details
+    Random vector where the function \code{g_fct} is evaluated. See Details.
   }
   \item{s_min,s_max}{
-    Limits of integration. Should be finite
+    Limits of integration. Should be finite.
   }
   \item{subdivisions}{
     Maximum number of subintervals.
@@ -72,24 +71,24 @@ IntegrateRandomVectorsProduct(f_fct, X, g_fct, Y, s_min, s_max,
 
 \examples{
 ## Define the integrand
-f_fct <- function(s,x){sapply(X=x,
-                              FUN=sampleComplexCFMoment,
-                              t=s,theta=theta)
-                   }
-f_bar_fct <- function(s,x){Conj(f_fct(s,x))}
+f_fct <- function(s, x){sapply(X = x,
+                               FUN = sampleComplexCFMoment,
+                               t = s, theta = theta)
+                       }
+f_bar_fct <- function(s, x) Conj(f_fct(s, x))
 
 ## Function specific arguments
-theta <- c(1.5,0.5,1,0)
-set.seed(345);X=rstable(3,1.5,0.5,1,0)
-s_min=0;s_max=2
-numberIntegrationPoints=10
-randomIntegrationLaw="norm"
+theta <- c(1.5, 0.5, 1, 0)
+set.seed(345)
+X <- rstable(3, 1.5, 0.5, 1, 0)
+s_min <- 0;
+s_max <- 2
+numberIntegrationPoints <- 10
+randomIntegrationLaw <- "norm"
 
-Estim_Simpson<- IntegrateRandomVectorsProduct(f_fct,X,f_bar_fct,X,s_min,s_max,
-                                              numberIntegrationPoints,
-                                              "Simpson",randomIntegrationLaw)
-
+Estim_Simpson <-
+    IntegrateRandomVectorsProduct(f_fct, X, f_bar_fct, X, s_min, s_max, 
+                                  numberIntegrationPoints, 
+                                  "Simpson", randomIntegrationLaw)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{general-functions}% __ONLY ONE__ keyword per line
+\keyword{general-functions}

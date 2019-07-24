@@ -1,28 +1,28 @@
 \name{sampleRealCFMoment}
 \alias{sampleRealCFMoment}
 \title{	
-	Real moment condition based on the characteristic function.
+  Real moment condition based on the characteristic function
 }	
 \description{	
-	Computes the moment condition based on the characteristic function as a real vector.
+  Computes the moment condition based on the characteristic function as
+  a real vector. 
 }
 \usage{
 sampleRealCFMoment(x, t, theta, pm = 0)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-  vector of data where the ecf is computed.
-}
+    vector of data where the ecf is computed.
+  }
   \item{t}{
-  Vector of (real) numbers where the CF is evaluated ; numeric
-}
+    vector of (real) numbers where the CF is evaluated; numeric.
+  }
  \item{theta}{	
-   Vector of parameters of the stable law; vector of length 4.
+   vector of parameters of the stable law; vector of length 4.
   }	  
   \item{pm}{
-    Parametrisation, an integer (0 or 1); default: \code{pm=0} (the 
-Nolan \sQuote{S0} parametrisation).
+    Parametrisation, an integer (0 or 1); default: \code{pm=0}
+    (Nolan's \sQuote{S0} parametrisation).
   }
 }
 \details{
@@ -39,24 +39,23 @@ The function compute the vector of difference between the eCF and the CF at a se
 If \code{length(t)}=\code{n}, the resulting vector will be of \code{length}=\code{2n} where the first \code{n} components will be the real part and the remaining the imaginary part
 }
 \value{
-	Returns a vector of \code{length} 2* \code{length(t)}.
+  a vector of \code{length} 2* \code{length(t)}.
 }
-
 \seealso{
-	\code{\link{ComplexCF}},\code{\link{sampleComplexCFMoment}}
+  \code{\link{ComplexCF}},
+  \code{\link{sampleComplexCFMoment}}
 }
-
 \examples{
-	## define the parameters
- nt <- 10   
- t <- seq(0.1,3,length.out=nt)
- theta <- c(1.5,0.5,1,0)
+## define the parameters
+nt <- 10   
+t <- seq(0.1, 3, length.out = nt)
+theta <- c(1.5, 0.5, 1, 0)
 pm <- 0
 
-set.seed(222);x=rstable(200,theta[1],theta[2],theta[3],theta[4],pm)
+set.seed(222)
+x <- rstable(200, theta[1], theta[2], theta[3], theta[4], pm)
 
 # Compute the characteristic function
-CFMR <- sampleRealCFMoment(x=x,t=t,theta=theta,pm=pm)
+CFMR <- sampleRealCFMoment(x = x, t = t, theta = theta, pm = pm)
 }
-
 \keyword{stable-functions}

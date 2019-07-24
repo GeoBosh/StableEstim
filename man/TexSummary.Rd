@@ -1,17 +1,16 @@
 \name{TexSummary}
 \alias{TexSummary}
 \title{
-  LaTex summary.
+  LaTeX summary
 }
 \description{
-  Creates a Tex table from a summary object or a vector of files.
+  Creates a TeX table from a summary object or a vector of files.
 }
 \usage{
 TexSummary(obj, files = NULL, sep_ = ",", FctsToApply = StatFcts,
            caption = "Statistical Summary",label = "Simtab",
            digits = 3, par_index = 1,MCparam=1000,...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{obj}{
     \code{list} of \code{length} 4 containing a summary \code{matrix} object
@@ -64,13 +63,12 @@ TexSummary(obj, files = NULL, sep_ = ",", FctsToApply = StatFcts,
   %\cr\cr
 }
 \value{
-  Returns a \code{list} of objects (same length as \code{par_index}) from class
-  \code{Latex}. See  \code{toLatex}  
+  a \code{list} of objects (same length as \code{par_index}) from class
+  \code{Latex}. See  \code{toLatex}
 }
 \seealso{
   \code{\link{Estim_Simulation}},
   \code{\link{ComputeStatObjectFromFiles}},
   \code{xtable}
 }
-
 \keyword{Simulation}

@@ -66,16 +66,13 @@ Estim(EstimMethod = c("ML", "GMM", "Cgmm","Kout"), data, theta0 = NULL,
 % CHECK
 \examples{
 ## general inputs
-theta <- c(1.45,0.55,1,0)
+theta <- c(1.45, 0.55, 1, 0)
 pm <- 0
 set.seed(2345)
-x <- rstable(200,theta[1],theta[2],theta[3],theta[4],pm)
+x <- rstable(200, theta[1], theta[2], theta[3], theta[4], pm)
 
-objKout <- Estim(EstimMethod="Kout",data=x,pm=pm,
-                     ComputeCov=FALSE,HandleError=FALSE,
-                     spacing="Kout")
-
+objKout <- Estim(EstimMethod = "Kout", data = x, pm = pm, 
+                     ComputeCov = FALSE, HandleError = FALSE, 
+                     spacing = "Kout")
 }
-
 \keyword{Estim-functions}
-

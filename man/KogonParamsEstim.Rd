@@ -1,13 +1,14 @@
 \name{IGParametersEstim}
 \alias{IGParametersEstim}
 \title{
-  Kogon regression method + McCulloch quantile method. 
+  Kogon regression method + McCulloch quantile method
 }
 \description{
-  Kogon regression method is used together with the McCulloch quantile method to provide initial estimates.
+  Kogon regression method is used together with the McCulloch quantile
+  method to provide initial estimates. 
 }
 \usage{
-IGParametersEstim(x,pm=0,...)
+IGParametersEstim(x, pm = 0, ...)
 }
 
 \arguments{
@@ -15,10 +16,10 @@ IGParametersEstim(x,pm=0,...)
     Data used to perform the estimation: vector of length n.
   }
   \item{pm}{
-    Parametrisation, an integer (0 or 1); default: \code{pm=0}(
+    Parametrisation, an integer (0 or 1); default: \code{pm = 0}(
     the Nolan \sQuote{S0} parametrisation).
   }
-  \item{\dots}{Other arguments. Currently not used}
+  \item{\dots}{Other arguments. Currently not used.}
 }
 \details{
   The parameters \eqn{\gamma} and \eqn{\delta} are estimated using the
@@ -47,9 +48,8 @@ McCulloch JH (1986).
 }
 
 \examples{
- x <- rstable(200,1.2,0.5,1,0,pm=0)
- IGParametersEstim(x,pm=0)
+x <- rstable(200, 1.2, 0.5, 1, 0, pm = 0)
+IGParametersEstim(x, pm = 0)
 }
-
 \keyword{Estim-functions}
 

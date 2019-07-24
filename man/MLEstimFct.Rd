@@ -1,7 +1,7 @@
 \name{MLParametersEstim}
 \alias{MLParametersEstim}
 \title{
-  Maximum likelihood (ML) method.
+  Maximum likelihood (ML) method
 }
 \description{
   Uses the numerical ML approach described by Nolan to estimate the 4
@@ -9,10 +9,8 @@
   due to the use of numerical optimisation routine.
 }
 \usage{
-MLParametersEstim(x, theta0 = NULL,
-                  pm = 0, PrintTime = FALSE, ...)
+MLParametersEstim(x, theta0 = NULL, pm = 0, PrintTime = FALSE, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
     Data used to perform the estimation: vector of length n.
@@ -62,16 +60,18 @@ Nolan J (2001).
 }
 %CHECK
 \examples{
-theta <- c(1.5,0.4,1,0)
+theta <- c(1.5, 0.4, 1, 0)
 pm <- 0
 ## 50 points does not give accurate estimation
 ## but it makes estimation fast for installation purposes
 ## use at least 200 points to get decent results.
-set.seed(1333);x <- rstable(50,theta[1],theta[2],theta[3],theta[4],pm)
+set.seed(1333)
+x <- rstable(50, theta[1], theta[2], theta[3], theta[4], pm)
 
-## This example takes > 30 sec hence commented
-##ML <- MLParametersEstim(x=x,pm=pm,PrintTime=TRUE)
+## This example takes > 30 sec hence commented out
+\dontrun{
+  ML <- MLParametersEstim(x = x, pm = pm, PrintTime = TRUE)
+}
 ## see the Examples folder for more examples.
 }
-
 \keyword{Estim-functions}
