@@ -23,16 +23,22 @@ characteristic functions and tools to run Monte Carlo simulations.
 The main functions of package `StableEstim` are briefly described below:
 
 
-* main function: `Estim()` gives the estimated parameters and the
-  asymptotic properties of the estimator.
+* main function: `Estim()` estimates the parameters by various
+  methods. Also gives the associated asymptotic properties of the
+  estimators.
 
-* estimation function: the methods provided so far are the
-  maximum-likelihood (`MLParametersEstim()`), the generalised method
-  of moment with a finite (`GMMParametersEstim()`) or continuum moment
-  conditions (`CgmmParametersEstim()`), the iterative Koutrouvelis
-  regression method (`KoutParametersEstim()`) and the fast
-  Kogon-McCulloch method used for first guess estimation
-  (`IGParametersEstim`).
+* estimation functions for specific methods: these functions are called by `Estim()` but can be used directly, as well. The methods provided so far are:
+
+  - the maximum-likelihood (`MLParametersEstim()`),
+
+  - the generalised method of moments with a finite (`GMMParametersEstim()`)
+    or continuum moment conditions (`CgmmParametersEstim()`),
+
+  - the iterative Koutrouvelis regression method
+    (`KoutParametersEstim()`),
+
+  - the fast Kogon-McCulloch method used for first guess estimation
+    (`IGParametersEstim`).
       
 * characteristic function: the characteristic function (`ComplexCF()`)
   and its Jacobian (`jacobianComplexCF()`) can be computed and will
