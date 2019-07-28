@@ -1,11 +1,11 @@
-\name{CF Jacobian}
+\name{jacobianComplexCF}
 \alias{jacobianComplexCF}
 \title{
-  Jacobian of the characteristic function of the stable law
+  Jacobian of the characteristic function of stable laws
 }
 \description{
   Numeric jacobian of the  characteristic function (CF) as a function of
-  the parameter \eqn{\theta} evaluated at a specific point(vector)
+  the parameter \eqn{\theta} evaluated at a specific (vector) point
   \code{t} and a given value \eqn{\theta}.
 }
 \usage{
@@ -13,28 +13,26 @@ jacobianComplexCF(t, theta, pm = 0)
 }
 \arguments{
   \item{t}{
-    Vector of (real) numbers where the jacobian of the CF is evaluated;
+    vector of (real) numbers where the jacobian of the CF is evaluated;
     numeric.
   }
   \item{theta}{
-    Given value of the parameters where the jacobian of the CF is
-    evaluated; vector of length 4. 
+    vector of parameters of the stable law; vector of length 4.
   }
   \item{pm}{
-    Parametrisation, an integer (0 or 1); default: \code{pm=0} (
-    the Nolan \sQuote{S0} parametrisation).
+    parametrisation, an integer (0 or 1); default: \code{pm = 0}
+    (Nolan's \sQuote{S0} parametrisation).
   }
 }
 \details{
   The numerical derivation is obtained by a call to the function
-  \code{jacobian} from the package \pkg{numDeriv}. We
-  have set up its arguments by default and the user is not allowerd
-  to modify them.
+  \code{jacobian} from package \pkg{numDeriv}. We have set up its
+  arguments by default and the user is not given the option to modify
+  them.
 }
 \value{ 
-  Returns a matrix \code{length(t)} \eqn{\times } 4 of complex numbers.
+  a matrix \code{length(t)} \eqn{\times } 4 of complex numbers.
 }
-
 \seealso{
  \code{\link{ComplexCF}} 
 }

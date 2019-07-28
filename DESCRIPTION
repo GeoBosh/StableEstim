@@ -2,9 +2,9 @@ Package: StableEstim
 Type: Package
 Title: Estimate the Four Parameters of Stable Laws using Different Methods
 Version: 2.2
-Date: 2019-07-26
-Depends: R(>= 2.10.0), methods, Matrix, stats, utils, stabledist, testthat
-Imports: numDeriv, xtable, fBasics, MASS
+Date: 2019-07-28
+Depends: R(>= 2.10.0), methods, Matrix, stabledist, testthat
+Imports: stats, utils, graphics, numDeriv, xtable, fBasics, MASS
 Authors@R: c( person(given = "Tarak", family = "Kharrat",
                      role = c("aut"), 
                      email = "Tarak.Kharrat@liverpool.ac.uk"),

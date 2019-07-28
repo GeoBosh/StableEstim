@@ -5,34 +5,38 @@
   Stable law estimation functions
 }
 \description{
-
   A collection of methods to estimate the four parameters of stable
   laws. The package also provides functions to compute the
   characteristic function and tools to run Monte Carlo simulations.
-
 }
 \details{
   The main functions of the package are briefly described below:
   \describe{
     \item{main function:}{\code{\link{Estim}} is the most useful
-      function of the package which provides the estimated parameters
-      and the asymptotic properties of the estimator.}
-    \item{estimation function:}{the methods provided so far are the
-      maximum-likelihood (\code{\link{MLParametersEstim}}), the
-      generalised method of moment with a finite
-      (\code{\link{GMMParametersEstim}}) or continuum moment
-      conditions (\code{\link{CgmmParametersEstim}}), the iterative
-      Koutrouvelis regression method (\code{\link{KoutParametersEstim}})
-      and the fast Kogon-McCulloch method used for first guess
-      estimation (\code{\link{IGParametersEstim}}).}
+      function of the package. It estimates of the parameters
+      and the asymptotic properties of the estimators.}
+
+    \item{estimation function:}{
+      the methods provided so far are the maximum-likelihood
+      (\code{\link{MLParametersEstim}}), the generalised method of
+      moment with finite (\code{\link{GMMParametersEstim}}) or
+      continuum (\code{\link{CgmmParametersEstim}}) moment conditions,
+      the iterative Koutrouvelis regression method
+      (\code{\link{KoutParametersEstim}}) and the fast Kogon-McCulloch
+      method used for first guess estimation
+      (\code{\link{IGParametersEstim}}).
+    }
     \item{characteristic function:}{the characteristic function
       (\code{\link{ComplexCF}})
       and its Jacobian (\code{\link{jacobianComplexCF}})
       can be computed and will return a vector (respectively a matrix)
       of complex numbers.}
-    \item{Monte Carlo simulation}{a tool to run a Monte Carlo simulation
-      (\code{\link{Estim_Simulation}}) is provided and can save output
-      files and/or produce statistical summary.}
+    \item{Monte Carlo simulation}{
+      \code{\link{Estim_Simulation}} is a tool to run Monte Carlo
+      simulations with flexible options to select the estimation method,
+      the Monte Carlo control parameters, compute statistical summaries
+      or save results to a file.
+    }
   }
 }
 \author{
@@ -110,8 +114,9 @@ Besbeas P and Morgan B (2008).
 % end:bibentry:all
 }
 \seealso{
-  \code{.mleStableFit},
-  \code{.qStableFit},
-  \code{stabledist}
+  \code{fBasics:::.mleStableFit},
+  \code{fBasics:::.qStableFit}
+  
+  package \pkg{"stabledist"}
 }
 \keyword{package}

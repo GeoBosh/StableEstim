@@ -7,17 +7,15 @@ importFrom(graphics, plot)
 importFrom(stats, dunif, lm, nlminb, optim, sd, var)
 importFrom(utils, read.csv, read.table, toLatex, write.table, packageVersion)
 
-importFrom(stabledist, dstable,rstable,pstable,qstable)
+importFrom(stabledist, dstable, rstable, pstable, qstable)
 importFrom(fBasics, .qStableFit)
 importFrom(numDeriv, jacobian)
 
 
-
-
 exportClass(Estim)
-exportMethods(show)
 exportClass(Best_t)
-exportMethods("+")
+
+exportMethods("+", show, initialize)
 
 export(
     getTime_,

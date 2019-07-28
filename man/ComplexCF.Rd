@@ -1,7 +1,7 @@
 \name{ComplexCF}
 \alias{ComplexCF}
 \title{
-  Compute the characteristic function of the stable laws
+  Compute the characteristic function of stable laws
 }
 \description{
   Theoretical characteristic function (CF) of stable laws under
@@ -13,13 +13,13 @@ ComplexCF(t, theta, pm = 0)
 }
 \arguments{
   \item{t}{
-    Vector of (real) numbers where the CF is evaluated ; numeric.
+    vector of (real) numbers where the CF is evaluated; numeric.
   }
   \item{theta}{
-    Vector of parameters of the stable law; vector of length 4.
+    vector of parameters of the stable law; vector of length 4.
   }
   \item{pm}{
-    Parametrisation, an integer (0 or 1); default: \code{pm = 0}
+    parametrisation, an integer (0 or 1); default: \code{pm = 0}
     (Nolan's \sQuote{S0} parametrisation).
   }
 }
@@ -28,7 +28,7 @@ ComplexCF(t, theta, pm = 0)
   \emph{Nolan(2013)}.
 }
 \value{
-  Vector of complex numbers with dimension \code{length(t)}.
+  vector of complex numbers with dimension \code{length(t)}.
 }
 \references{
   % bibentry: nolan:2013
@@ -40,7 +40,7 @@ In progress, Chapter 1 online at academic2.american.edu/\$sim\$jpnolan.
 }
 
 \seealso{
- \code{\link{jacobianComplexCF}} 
+  \code{\link{jacobianComplexCF}} 
 }
 \examples{
 ## define the parameters

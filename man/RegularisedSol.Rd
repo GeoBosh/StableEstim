@@ -4,10 +4,12 @@
   Regularised Inverse
 }
 \description{
-Regularised solition of the (ill-posed) problem \eqn{K\phi=r} where
-\eqn{K} is a \eqn{n \times n} matrix, \eqn{r} is a given vector of
-\code{length} n. User can choose one of the 3 schemes described in
-Carrasco and Florens(2007).
+
+  Regularised solution of the (ill-posed) problem \eqn{K\phi = r} where
+  \eqn{K} is a \eqn{n \times n} matrix, \eqn{r} is a given vector of
+  \code{length} n. Users can choose one of the 3 schemes described in
+  Carrasco and Florens (2007).
+
 }
 \usage{
 RegularisedSol(Kn, alphaReg, r,
@@ -16,49 +18,52 @@ RegularisedSol(Kn, alphaReg, r,
 }
 \arguments{
   \item{Kn}{
-    Numeric \eqn{n \times n} matrix.
+    numeric \eqn{n \times n} matrix.
   }
   \item{alphaReg}{
-    Regularisation parameter; numeric in ]0,1].
+    regularisation parameter; numeric in ]0,1].
   }
   \item{r}{
-    Nummeric vector of \code{length} n.
+    numeric vector of \code{length} n.
   }
   \item{regularization}{
-    Regularization scheme to be used. User can choose between
-    \code{"Tikhonov"} scheme ,\code{"LF"} (Landweber-Fridmann) and
-    \code{"cut-off"}(spectral cut-off). See details.
+    regularization scheme to be used, one of \code{"Tikhonov"} (Tikhonov
+    scheme), \code{"LF"} (Landweber-Fridmann) and \code{"cut-off"}
+    (spectral cut-off). See Details.
   }
   \item{\dots}{
-    The value of \eqn{c} used in the \code{"LF"} scheme. See
+    the value of \eqn{c} used in the \code{"LF"} scheme. See
     Carrasco and Florens(2007).
   }
 }
 \details{
-  %\cr\cr
+
   Following Carrasco and Florens(2007), the regularised solution of the
   problem \eqn{K \phi=r} is given by :
-  \deqn{\varphi_{\alpha_{reg}}=\sum_{j=1}^{n} q(\alpha_{reg},\mu_j)\frac{<r,\psi_j >}{\mu_j} \phi_j}
-  where \eqn{q} is a (positive) real function with some regularity conditions
-  and \eqn{\mu,\phi,\psi} the singular decomposition of the matrix \eqn{K}.
-  %\cr\cr
+  \deqn{\varphi_{\alpha_{reg}} =
+    \sum_{j=1}^{n} q(\alpha_{reg},\mu_j)\frac{<r,\psi_j >}{\mu_j} \phi_j
+    ,
+  }
+  where \eqn{q} is a (positive) real function with some regularity
+  conditions and \eqn{\mu,\phi,\psi} the singular decomposition of the
+  matrix \eqn{K}.
+
   The \code{regularization} parameter defines the form of the function
   \eqn{q}. For example, the \code{"Tikhonov"} scheme defines
-  \eqn{q(\alpha_{reg},\mu)= \frac{\mu^2}{\alpha_{reg}+\mu^2}}.
-  %\cr\cr
+  \eqn{q(\alpha_{reg},\mu) = \frac{\mu^2}{\alpha_{reg}+\mu^2}}.
+
   When the matrix \eqn{K} is symmetric, the singular decomposition is
   replaced by a spectral decomposition.
-  }
-  \value{
-    Returns the regularised solution, a vector of \code{length} n.
-  }
-  \references{ % bibentry: carrasco2007linear
+}
+\value{
+  the regularised solution, a vector of length n.
+}
+\references{ % bibentry: carrasco2007linear
 Carrasco M, Florens J and Renault E (2007).
 ``Linear inverse problems in structural econometrics estimation based on spectral decomposition and regularization.''
 \emph{Handbook of econometrics}, \bold{6}, pp. 5633--5751.
 % end:bibentry:  carrasco2007linear
 }
-
 \seealso{
 \code{\link{solve}}
 }

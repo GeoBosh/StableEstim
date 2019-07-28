@@ -13,32 +13,32 @@ ComputeFirstRootRealeCF(x, ..., tol = 0.001, maxIter = 100,
 }
 \arguments{
   \item{x}{
-    Data used to perform the estimation: vector of length n.
+    data used to perform the estimation: vector of length n.
   }
   \item{\dots}{
-   Other arguments to pass to the optimisation function.
+    other arguments to pass to the optimisation function.
   }
   \item{tol}{
-    Tolerance to accept the solution; default=1e-3.
+    tolerance to accept the solution; default = 1e-3.
   }
   \item{maxIter}{
-    maximum number of iteration in the Welsh algorithm; default=100.
+    maximum number of iteration in the Welsh algorithm; default = 100.
   }
   \item{lowerBand}{
-    Lower band of the domain where the graphical seach is performed;
-    default=1e-4.
+    lower band of the domain where the graphical seach is performed;
+    default = 1e-4.
   }
   \item{upperBand}{
     Lower band of the domain where the graphical seach is performed;
-    default=30.
+    default = 30.
   }
 }
 \details{
   The Welsh algorithm is first applied. If it fails to provide a
-  satisfactory value (\code{< tol}), a graphical/ numerical  approach is
-  used. We first plot the real part of the eCF vs t in order to determine the
-  first zero directly and use it as the initial guess of a numerical
-  minimisation routine.
+  satisfactory value (\code{< tol}), a graphical/ numerical approach is
+  used. We first plot the real part of the eCF vs t in order to
+  determine the first zero directly and use it as the initial guess of a
+  numerical minimisation routine.
 }
 \value{
   \code{numeric}: first zero of the real part of the eCF.
@@ -49,7 +49,6 @@ Welsh A (1986).
 \emph{Statistics \& probability letters}, \bold{4}(2), pp. 65--67.
 % end:bibentry:  welsh1986implementing
 }
-
 \seealso{
   \code{\link{ComplexCF}}
 }

@@ -26,17 +26,20 @@
       best t-vectors.}
     \item{\code{detVal}:}{Object of class \code{"vector"}; values of the
       optimal determinant found after minimisation.}
-    \item{\code{convcode}}{Convergence code.}
+    \item{\code{convcode}:}{Convergence code.}
   }
 }
 \section{Methods}{
   \describe{
     \item{+}{\code{signature(e1 = "Best_t", e2 = "Best_t")}:
-      sum 2 objects from class \code{Best_t}. }
+      sum objects from class \code{Best_t}.
+    }
     \item{initialize}{\code{signature(.Object = "Best_t")}:
-      initialise an object from class \code{Best_t} as described above.}
+      initialise an object from class \code{Best_t} as described above.
+    }
     \item{show}{\code{signature(object = "Best_t")}:
-      print a summary of the object.}
+      print a summary of the object.
+    }
   }
 }
 \seealso{

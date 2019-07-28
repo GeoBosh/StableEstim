@@ -13,39 +13,39 @@ MLParametersEstim(x, theta0 = NULL, pm = 0, PrintTime = FALSE, ...)
 }
 \arguments{
   \item{x}{
-    Data used to perform the estimation: vector of length n.
+    data used to perform the estimation: vector of length n.
   }
   \item{theta0}{
-    Initial guess for the 4 parameters values: If \code{NULL}, the
+    initial guess for the 4 parameters values: If \code{NULL}, the
     Kogon-McCulloch method is called, see \code{\link{IGParametersEstim}};
     a vector of length 4.
   }
   \item{pm}{
-    Parametrisation, an integer (0 or 1); default: \code{pm=0} (the
-    Nolan \sQuote{S0} parametrisation).
+    parametrisation, an integer (0 or 1); default: \code{pm=0}
+    (Nolan's \sQuote{S0} parametrisation).
   }
   \item{PrintTime}{
-    Logical flag; if set to TRUE, the estimation duration is printed out to
-    the screen in a readable format (h/min/sec).
+    logical flag; if set to TRUE, the estimation duration is printed out
+    to the screen in a readable format (h/min/sec).
   }
   \item{\dots}{
     Other argument to be passed to the optimisation function.
   }
 }
 \details{
-  The function performs the minimisation of the numerical (-)log-density of
-  stable law computed by function \code{dstable}
-  from the \pkg{stabledist} package. 
-  %\cr\cr
-  After testing several optimisation routines, we have found out
-  that the \code{"L-BFGS-B"} algorithm performs better
-  with the ML method (faster, more accurate). 
+  The function performs the minimisation of the numerical (-)log-density
+  of stable laws computed by function \code{dstable} from package
+  \pkg{stabledist}.
+
+  After testing several optimisation routines, we have found out that
+  the \code{"L-BFGS-B"} algorithm performs better with the ML method
+  (faster, more accurate).
 }
 \value{
-Returns a list with the following elements:
-  \item{Estim }{output of the optimisation function}
-  \item{duration}{estimation duration in a numerical format}
-  \item{method}{\code{character} describing the method used}
+  a list with the following elements:
+  \item{Estim }{output of the optimisation function,}
+  \item{duration}{estimation duration in a numerical format,}
+  \item{method}{\code{character} describing the method used.}
 }
 \references{
   % bibentry: nolan2001maximum
@@ -54,9 +54,8 @@ Nolan J (2001).
 \emph{L'evy processes: theory and applications}, pp. 379--400.
 % end:bibentry:  nolan2001maximum
 }
-
 \seealso{
- \code{\link{Estim}}
+  \code{\link{Estim}}
 }
 %CHECK
 \examples{

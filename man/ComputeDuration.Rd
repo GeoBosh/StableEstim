@@ -14,8 +14,8 @@ ComputeDuration(t_init, t_final, OneNumber = FALSE)
   \item{t_init}{Starting time; numeric.}
   \item{t_final}{Final time; numeric.}
   \item{OneNumber}{
-    Logical flag; if set to True, the duration in seconds will be
-    returned. Otherwise, a vector of \code{length} 3 will be computed
+    Logical flag; if set to TRUE, the duration in seconds will be
+    returned. Otherwise, a vector of length 3 will be computed
     representing the time in h/min/sec.
   }
 }
@@ -23,7 +23,6 @@ ComputeDuration(t_init, t_final, OneNumber = FALSE)
   a \code{numeric} of length 1 or 3 depending on the value of
   \code{OneNumber} flag.
 }
-
 \seealso{
   \code{\link{PrintDuration}},
   \code{\link{PrintEstimatedRemainingTime}}.
