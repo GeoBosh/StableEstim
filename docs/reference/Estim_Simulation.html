@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Monte Carlo Simulation — Estim_Simulation • StableEstim</title>
+<title>Monte Carlo simulation — Estim_Simulation • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,10 @@
 
 
 
-<meta property="og:title" content="Monte Carlo Simulation — Estim_Simulation" />
+<meta property="og:title" content="Monte Carlo simulation — Estim_Simulation" />
 
 <meta property="og:description" content="Runs Monte Carlo simulation for a selected estimation method. The
-function can save a file and produce a statistical summary." />
+  function can save a file and produce a statistical summary." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,7 +103,7 @@ function can save a file and produce a statistical summary." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Monte Carlo Simulation</h1>
+    <h1>Monte Carlo simulation</h1>
     
     <div class="hidden name"><code>Estim_Simulation.Rd</code></div>
     </div>
@@ -111,7 +111,7 @@ function can save a file and produce a statistical summary." />
     <div class="ref-description">
     
     <p>Runs Monte Carlo simulation for a selected estimation method. The
-function can save a file and produce a statistical summary.</p>
+  function can save a file and produce a statistical summary.</p>
     
     </div>
 
@@ -119,74 +119,76 @@ function can save a file and produce a statistical summary.</p>
                  <span class='kw'>MCparam</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='kw'>Estimfct</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ML"</span>, <span class='st'>"GMM"</span>, <span class='st'>"Cgmm"</span>,<span class='st'>"Kout"</span>),
                  <span class='kw'>HandleError</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>FctsToApply</span> <span class='kw'>=</span> <span class='no'>StatFcts</span>,
                  <span class='kw'>saveOutput</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>StatSummary</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                 <span class='kw'>CheckMat</span><span class='kw'>=</span><span class='fl'>TRUE</span>,<span class='kw'>tolFailCheck</span><span class='kw'>=</span><span class='no'>tolFailure</span>,
-                 <span class='kw'>SeedOptions</span><span class='kw'>=</span><span class='kw'>NULL</span>,<span class='no'>...</span>)</pre>
+                 <span class='kw'>CheckMat</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tolFailCheck</span> <span class='kw'>=</span> <span class='no'>tolFailure</span>,
+                 <span class='kw'>SeedOptions</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>AlphaBetaMatrix</th>
-      <td><p>Values of the parameter \(\alpha\) and  \(\beta\) from which
-    we simulate the data. By default, The values of \(\gamma\)
-    and \(\delta\) are set to 1 and 0 respectively; matrix \(2 \times n\)</p></td>
+      <td><p>values of the parameter \(\alpha\) and \(\beta\) from which we
+    simulate the data. By default, the values of \(\gamma\) and
+    \(\delta\) are set to 1 and 0, respectively;
+    a \(2 \times n\) matrix.</p></td>
     </tr>
     <tr>
       <th>SampleSizes</th>
-      <td><p>Sample sizes to be used to simulate the data. By default, we use
+      <td><p>sample sizes to be used to simulate the data. By default, we use
     <code>200</code> (small sample size) and <code>1600</code> (large sample size);
-      vector of integer.</p></td>
+    vector of integers.</p></td>
     </tr>
     <tr>
       <th>MCparam</th>
       <td><p>Number of Monte Carlo simulation for each couple of parameter,
-      default=100; integer</p></td>
+    default = 100; an integer number.</p></td>
     </tr>
     <tr>
       <th>Estimfct</th>
-      <td><p>The estimation function to be used. User can choose between
-      <code>ML</code>, <code>GMM</code>, <code>Cgmm</code> or <code>Kout</code>.</p></td>
+      <td><p>the estimation function to be used, one of 
+    <code>"ML"</code>, <code>"GMM"</code>, <code>"Cgmm"</code> or <code>"Kout"</code>.</p></td>
     </tr>
     <tr>
       <th>HandleError</th>
-      <td><p>Logical flag: if set to TRUE, the simulation doesn't stop when an
-      error in the estimation function is encountered. A vector of (size 4)
-      <code>NA</code> is saved and the the simulation carries on. See details.</p></td>
+      <td><p>logical flag: if set to TRUE, the simulation doesn't stop when an
+    error in the estimation function is encountered. A vector of (size
+    4) <code>NA</code> is saved and the the simulation carries on. See
+    details.</p></td>
     </tr>
     <tr>
       <th>FctsToApply</th>
-      <td><p>Functions used to produce the statistical summary. See details ;
-      vector of <code>character</code>.</p></td>
+      <td><p>functions used to produce the statistical summary. See details;
+    a character vector.</p></td>
     </tr>
     <tr>
       <th>saveOutput</th>
-      <td><p>Logical flag: if set to TRUE, a csv file (for each couple of
-      parameter \(\alpha\) and \(\beta\)) with the the estimation
-      information is saved in the current directory. See details</p></td>
+      <td><p>logical flag: if set to TRUE, a csv file (for each couple of
+    parameters \(\alpha\) and \(\beta\)) with the the estimation
+    information is saved in the current directory. See Details.</p></td>
     </tr>
     <tr>
       <th>StatSummary</th>
-      <td><p>Logical flag: if set to TRUE, a statistical summary (using
-      <code>FctsToApply</code>) is returned. See details.</p></td>
+      <td><p>logical flag: if set to TRUE, a statistical summary (using
+    <code>FctsToApply</code>) is returned. See Details.</p></td>
     </tr>
     <tr>
       <th>CheckMat</th>
-      <td><p>Logical flag: if set to TRUE, an estimation is
-      declared failed if the squared error of the estimation is larger
-      than <code>tolFailCheck</code>; default TRUE</p></td>
+      <td><p>logical flag: if set to TRUE, an estimation is declared failed if
+    the squared error of the estimation is larger than
+    <code>tolFailCheck</code>; default = TRUE.</p></td>
     </tr>
     <tr>
       <th>tolFailCheck</th>
-      <td><p>Tolerance on the squared error of the estimation
-      to be declared failed; default 1.5</p></td>
+      <td><p>tolerance on the squared error of the estimation to be declared
+    failed; default = 1.5.</p></td>
     </tr>
     <tr>
       <th>SeedOptions</th>
-      <td><p>List to control the seed generation. See details.</p></td>
+      <td><p>list to control the seed generation. See Details.</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
-      <td><p>Other arguments to be passed to the estimation function.</p></td>
+      <td><p>other arguments to be passed to the estimation function.</p></td>
     </tr>
     </table>
     
@@ -195,10 +197,10 @@ function can save a file and produce a statistical summary.</p>
     <p><!-- %\cr\cr -->
   <b>Error Handling</b>
   <!-- %\cr\cr -->
-  It is advisable to set it to TRUE when user is planning to launch long
-  simulations as it will prevent the procedure to stop if an error
-  occurs for one sample data. The estimation function will produce a vector of
-  <code>NA</code> as estimated parameters related to this (error
+  It is advisable to set it to TRUE when the user is planning to launch
+  long simulations as it will prevent the procedure from stopping if an
+  error occurs for one sample data. The estimation function will produce
+  a vector of <code>NA</code> as estimated parameters related to this (error
   generating) sample data and move on to the next Monte Carlo step.
   <!-- %\cr\cr -->
   <b>Statistical summary</b>
@@ -209,82 +211,78 @@ function can save a file and produce a statistical summary.</p>
   parameters and the columns the statistical information.
   <!-- %\cr\cr -->
   In all cases, the following quantities are computed:</p><dl class='dl-horizontal'>
-    <dt><code>sample size</code>:</dt><dd><p>the sample size used to produce the simulated data</p></dd>
-    <dt><code>alphaT</code>, <code>betaT</code>:</dt><dd><p>the true values of the
-      parameters</p></dd>
-    <dt><code>failure</code>:</dt><dd><p>the number of times the procedure failed to
-      produce relevant estimation.</p></dd>
-    <dt><code>time</code>:</dt><dd><p>The average running time in seconds of the
-      estimation procedure</p></dd>
-  </dl><p>Besides, the (vector of <code>character</code>) <code>FctsToApply</code> controls
+    <dt><code>sample size</code>:</dt><dd><p>the sample size used to produce the simulated data.</p></dd>
+    <dt><code>alphaT</code>, <code>betaT</code>:</dt><dd><p>the true values of the parameters.</p></dd>
+    <dt><code>failure</code>:</dt><dd><p>the number of times the procedure failed to produce relevant
+      estimation.</p></dd>
+    <dt><code>time</code>:</dt><dd><p>the average running time in seconds of the estimation procedure</p></dd>
+  </dl>
+    <p>Besides, the (vector of <code>character</code>) <code>FctsToApply</code> controls
   the other quantities to be computed by providing the name of the
   function object to be applied to the vector of estimated
-  parameter. The signature of the function should be of the form
-  <code>fctName=function(p,...){...}</code> where <code>p</code> is the vector
-  (<code>length(p)=MCparam</code>) of parameter estimate and <code>&#8230;</code> is
-  the extra arguments to be passed the function.
-  <!-- %\cr\cr -->
-  By default, the functions of the <code>StatFcts</code> will be
-  applied but user can pass his own functions by providing their name (
-  in the <code>FctsToApply</code> vector and their definition in the global environment.
-  <!-- %\cr\cr -->
-  Note that if <code>CheckMat</code> is set to TRUE, the estimation is
+  parameters. The signature of the function should be of the form
+  <code>fctName = function(p,...){...}</code>, where <code>p</code> is the vector
+  (<code>length(p) = MCparam</code>) of parameter estimates and <code>&#8230;</code>
+  is the extra arguments to be passed the function.</p>
+<p>By default, the functions from <code>StatFcts</code> will be applied but the
+  user can pass his own functions by providing their names in argument
+  <code>FctsToApply</code> and their definitions in the global environment.</p>
+<p>Note that if <code>CheckMat</code> is set to TRUE, the estimation is
   considered failed if the squared error (of the first 2 parameters
-  <code>alpha</code> and <code>beta</code>) is larger than <code>tolFailCheck</code>. 
-  <b>Output file</b>
-  <!-- %\cr\cr -->
-  Setting <code>saveOutput</code> to TRUE will have the side effect of
-  saving a csv file in the working directory. This file will have
-  <code>MCparam</code>*<code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(SampleSizes)</a></code> lines and its columns will
-  be :</p><dl class='dl-horizontal'>
-    <dt><code>alphaT</code>, <code>betaT</code>:</dt><dd><p>the true value of the parameters.</p></dd>
+  <code>alpha</code> and <code>beta</code>) is larger than <code>tolFailCheck</code>.</p>
+<p><b>Output file</b></p>  
+<p>Setting <code>saveOutput</code> to TRUE will have the side effect of saving
+  a csv file in the working directory. This file will have
+  <code>MCparam * length(SampleSizes)</code> lines and its columns will
+  be:</p><dl class='dl-horizontal'>
+    <dt><code>alphaT</code>, <code>betaT</code>:</dt><dd><p>the true values of the parameters.</p></dd> 
     <dt><code>data size</code>:</dt><dd><p>the sample size used to generate the simulated data.</p></dd>
     <dt><code>seed</code>:</dt><dd><p>the seed value used to generate the simulated data.</p></dd>
-    <dt><code>alphaE</code>, <code>betaE</code>, <code>gammaE</code>, <code>deltaE</code>:</dt><dd><p>the
-    estimate of the 4 parameters.</p></dd>
+    <dt><code>alphaE</code>, <code>betaE</code>, <code>gammaE</code>, <code>deltaE</code>:</dt><dd><p>the estimates of the 4 parameters.</p></dd>
     <dt><code>failure</code>:</dt><dd><p>binary: 0 for success, 1 for failure.</p></dd>
     <dt><code>time</code>:</dt><dd><p>estimation running time in seconds.</p></dd>
-  </dl><p>The file name is informative to let the user identify the value
-  of the true parameters, the MC parameters as well as the options
-  selected for the estimation method.
-  <!-- %\cr\cr -->
-  The csv file is updated after each MC estimation which is useful when
+  </dl>
+    <p>The file name is informative to let the user identify the values of
+  the true parameters, the MC parameters, as well as the options
+  selected for the estimation method.</p>
+<p>The csv file is updated after each MC estimation, which is useful when
   the simulation stops before it finishes. Besides, using the
   check-pointing mechanism explained below, the simulation can re-start
-  from where it stopped.
-  <!-- %\cr\cr -->
-  <em>Check-pointing</em>
-  Checkpointing is the act of saving enough program state and results
-  so far calculated that a computation can be stopped and restarted. The
-  way we did it here is to save a text file with some useful
-  information about the state of the estimation. This text file is
-  updated after each MC iteration and read at the beginning of function
+  from where it stopped.</p>
+<p><em>Check-pointing.</em>
+  Checkpointing is the act of saving enough program state and results so
+  far calculated that a computation can be stopped and restarted. The
+  way we did it here is to save a text file with some useful information
+  about the state of the estimation. This text file is updated after
+  each MC iteration and read at the beginning of function
   <code>Estim_Simulation</code> to allow the simulation to re-start from where
-  it stopped. This file is deleted at the end of the simulation procedure.
-  <!-- %\Cr\cr -->
-  <em>SeedOptions</em>
-  If user does not want to control the seed generation, he could ignore
-  this argument (default value <code>NULL</code>). This argument can be more
+  it stopped. This file is deleted at the end of the simulation
+  procedure.</p>
+<p><em>SeedOptions.</em>
+  Users who do not want to control the seed generation can ignore this
+  argument (its default value is <code>NULL</code>). This argument can be more
   useful when one wants to cut the simulation (even for one parameter
-  value) into pieces. In that case, he can control which part of the
-  seed vector he wants to use.</p><dl class='dl-horizontal'>
+  value) into pieces. In that case, the user can control which part of
+  the seed vector to use.</p><dl class='dl-horizontal'>
     <dt><code>MCtot</code>:</dt><dd><p>total values of MC simulations in the entire process.</p></dd>
-    <dt><code>seedStart</code>:</dt><dd><p>starting index in the seed vector. The
-      vector extracted will be of size <code>MCparam</code>.</p></dd>
+    <dt><code>seedStart</code>:</dt><dd><p>starting index in the seed vector. The vector extracted will be of
+      size <code>MCparam</code>.</p></dd>
   </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If <code>StatSummary</code> is set to TRUE, a <code>list</code> with 4 slices
-  (corresponding to the 4 parameters) is returned. Each slice is a
-  matrix. If <code>SaveOutput</code> is set to TRUE, only a csv file
-  is saved and nothing is returned (if <code>StatSummary</code> is FALSE).
-  If both are FALSE, the function stops.</p>
+    <p>If <code>StatSummary</code> is set to TRUE, a <code>list</code> with 4 components
+  (corresponding to the 4 parameters) is returned. Each component is a
+  matrix. If <code>SaveOutput</code> is set to TRUE, only a csv file is saved
+  and nothing is returned (if <code>StatSummary</code> is FALSE).  If both are
+  FALSE, the function stops.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='EstimFct.html'>Estim</a></code>,<code><a href='CgmmParamsEstim.html'>CgmmParametersEstim</a></code>,
-  <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>,<code><a href='MLEstimFct.html'>MLParametersEstim</a></code></p></div>
+    <div class='dont-index'><p><code><a href='Estim.html'>Estim</a></code>,
+  <code><a href='CgmmParamsEstim.html'>CgmmParametersEstim</a></code>,
+  <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>,
+  <code><a href='MLParametersEstim.html'>MLParametersEstim</a></code></p></div>
     
 
   </div>

@@ -32,8 +32,10 @@
 
 <meta property="og:title" content="Class <code>"Estim"</code> — Estim-class" />
 
-<meta property="og:description" content="Class storing all the information about the estimation method; output
-  of function Estim" />
+<meta property="og:description" content="" />
+
+<meta property="og:description" content="Class for storing the results of estimating parameters of stable
+  laws, output of function Estim()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,61 +107,60 @@
     <div class="page-header">
     <h1>Class <code>"Estim"</code></h1>
     
-    <div class="hidden name"><code>EstimClass.Rd</code></div>
+    <div class="hidden name"><code>Estim-class.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Class storing all the information about the estimation method; output
-  of function Estim</p>
+    
+
+    <p>Class for storing the results of estimating parameters of stable
+  laws, output of function <code><a href='Estim.html'>Estim()</a></code>.</p>
     
     </div>
 
         
     <h2 class="hasAnchor" id="objects-from-the-class"><a class="anchor" href="#objects-from-the-class"></a>Objects from the Class</h2>
 
-    <p>Objects can be created by calls of the form <code>new("Estim", par, ...)</code>.
-User can provide some/all of the inputs stated below to create an object
-of this class or call function <code><a href='EstimFct.html'>Estim</a></code> with appropriate arguments.</p>
+    
+    <p>Objects can be created by calls of the form <code>new("Estim", par,
+  ...)</code>.  Users can provide some (or all) of the inputs stated below to
+  create an object from this class or call function <code><a href='Estim.html'>Estim</a></code>
+  with appropriate arguments.</p>
     
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl class='dl-horizontal'>
-    <dt><code>par</code>:</dt><dd><p>Object of class <code>"numeric"</code>; Value of the
-      4 estimated parameters.</p></dd>
-    <dt><code>par0</code>:</dt><dd><p>Object of class <code>"numeric"</code>; Initial guess
-      for the 4 parameters.</p></dd>
-    <dt><code>vcov</code>:</dt><dd><p>Object of class <code>"matrix"</code> with 4 rows and
-      4 columns representing the covariance matrix</p></dd>
-    <dt><code>confint</code>:</dt><dd><p>Object of class <code>"matrix"</code> with 4 rows
-      and 2 columns representing the confidence interval computed
+    <dt><code>par</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric(4)</a></code>, values of the 4 estimated parameters.</p></dd>
+    <dt><code>par0</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric(4)</a></code>, initial values for the 4 parameters.</p></dd>
+    <dt><code>vcov</code>:</dt><dd><p>object of class <code>"matrix"</code> (<code>4 x 4</code>),
+      representing the covariance matrix of the estimated parameters.</p></dd>
+    <dt><code>confint</code>:</dt><dd><p>object of class <code>"matrix"</code> (<code>4 x 4</code>),
+      representing the confidence interval computed
       at a specific level (attribute of the object).</p></dd>
-    <dt><code>data</code>:</dt><dd><p>Object of class <code>"numeric"</code> used to compute
-    the estimation.</p></dd>
-    <dt><code>sampleSize</code>:</dt><dd><p>Object of class <code>"numeric"</code> ; length
-      of the data</p></dd>
-    <dt><code>others</code>:</dt><dd><p>Object of class <code>"list"</code> ; more
-      information about the estimation method</p></dd>
-    <dt><code>duration</code>:</dt><dd><p>Object of class <code>"numeric"</code> ; duration
-      in seconds</p></dd>
-    <dt><code>failure</code>:</dt><dd><p>Object of class <code>"numeric"</code> representing
-    the status of the procedure: 0 failure or 1 success</p></dd>
-    <dt><code>method</code>:</dt><dd><p>Object of class <code>"character"</code> description
-    of the parameter used in the estimation.</p></dd>
+    <dt><code>data</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric()</a></code>, the data used to compute the estimates.</p></dd>
+    <dt><code>sampleSize</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric(1)</a></code>, length of the data.</p></dd>
+    <dt><code>others</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list()</a></code>,
+      further information about the estimation method.</p></dd>
+    <dt><code>duration</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric(1)</a></code>, duration in seconds.</p></dd>
+    <dt><code>failure</code>:</dt><dd><p><code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric(1)</a></code>,
+      represents the status of the procedure: 0 failure or 1 success.</p></dd>
+    <dt><code>method</code>:</dt><dd><p>Object of class <code>"character"</code>,
+      description of the parameters used in the estimation.</p></dd>
   </dl>
     
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     <p></p><dl class='dl-horizontal'>
-    <dt>initialize</dt><dd><p><code>signature(.Object = "Estim")</code>: creates un
-      aboject of this class using the inputs described above</p></dd>
-    <dt>show</dt><dd><p><code>signature(object = "Estim")</code>: summarised print of
-      the object.</p></dd>
-	 </dl>
+    <dt>initialize</dt><dd><p><code>signature(.Object = "Estim")</code>:
+      creates an object of this class using the inputs described above.</p></dd>
+    <dt>show</dt><dd><p><code>signature(object = "Estim")</code>:
+      summarised print of the object.</p></dd>
+  </dl>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='EstimFct.html'>Estim</a></code></p></div>
+    <div class='dont-index'><p><code><a href='Estim.html'>Estim</a></code></p></div>
     
 
   </div>

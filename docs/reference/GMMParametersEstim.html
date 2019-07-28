@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generalised method of moment with finite number of moment conditions — GMMParametersEstim • StableEstim</title>
+<title>Estimate parameters of stable laws using a GMM method — GMMParametersEstim • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,12 +30,13 @@
 
 
 
-<meta property="og:title" content="Generalised method of moment with finite number of moment conditions — GMMParametersEstim" />
+<meta property="og:title" content="Estimate parameters of stable laws using a GMM method — GMMParametersEstim" />
 
-<meta property="og:description" content="Generalised method of moment with finite number of moment conditions. It
-uses a regularisation technique to make the method more robust (when
-the number of moment condition is large) and allows different schemes to
-select where the moment conditions are computed." />
+<meta property="og:description" content="Estimate parameters of stable laws using generalised method of
+    moments (GMM) with finite number of moment conditions. It uses a
+    regularisation technique to make the method more robust (when the
+    number of moment condition is large) and allows different schemes
+    to select where the moment conditions are computed." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,17 +106,18 @@ select where the moment conditions are computed." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generalised method of moment with finite number of moment conditions</h1>
+    <h1>Estimate parameters of stable laws using a GMM method</h1>
     
     <div class="hidden name"><code>GMMParametersEstim.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Generalised method of moment with finite number of moment conditions. It
-uses a regularisation technique to make the method more robust (when
-the number of moment condition is large) and allows different schemes to
-select where the moment conditions are computed.</p>
+    <p>Estimate parameters of stable laws using generalised method of
+    moments (GMM) with finite number of moment conditions. It uses a
+    regularisation technique to make the method more robust (when the
+    number of moment condition is large) and allows different schemes
+    to select where the moment conditions are computed.</p>
     
     </div>
 
@@ -134,146 +136,144 @@ select where the moment conditions are computed.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>Data used to perform the estimation: vector of length n.</p></td>
+      <td><p>data used to perform the estimation: vector of length n.</p></td>
     </tr>
     <tr>
       <th>algo</th>
-      <td><p>GMM algorithm: "2SGMM" is the two step GMM proposed by Hansen(1982)
-    and the "CueGMM" and "ITGMM" are respectively the continuous updated and the
-    iterative GMM proposed by Hansen, Eaton et Yaron (1996) and adapted
-    to the continuum case.</p></td>
+      <td><p>GMM algorithm: <code>"2SGMM"</code> is the two step GMM proposed by
+    Hansen(1982). <code>"CueGMM"</code> and <code>"ITGMM"</code> are respectively
+    the continuous updated and the iterative GMM proposed by Hansen,
+    Eaton et Yaron (1996) and adapted to the continuum case.</p></td>
     </tr>
     <tr>
       <th>alphaReg</th>
-      <td><p>Value of the regularisation parameter; numeric,default=0.01</p></td>
+      <td><p>value of the regularisation parameter; numeric, default = 0.01.</p></td>
     </tr>
     <tr>
       <th>regularization</th>
-      <td><p>Regularization scheme to be used. User can choose between
-    <code>"Tikhonov"</code> scheme ,<code>"LF"</code> (Landweber-Fridmann) and
-    <code>"cut-off"</code>(spectral cut-off). See <code><a href='Inverse.html'>RegularisedSol</a></code>.</p></td>
+      <td><p>regularization scheme to be used, one of <code>"Tikhonov"</code>
+    (Tikhonov), <code>"LF"</code> (Landweber-Fridmann) and <code>"cut-off"</code>
+    (spectral cut-off). See <code><a href='RegularisedSol.html'>RegularisedSol</a></code>.</p></td>
     </tr>
     <tr>
       <th>WeightingMatrix</th>
-      <td><p>Type of Weighting matrix used to compute the objective function. User
-    can choose between <code>"OptAsym"</code> (the optimal asymptotic),
-    <code>"DataVar"</code> (the data driven) and <code>"Id"</code> (the identity
-    matrix). See details</p></td>
+      <td><p>type of weighting matrix used to compute the objective function, one
+    of <code>"OptAsym"</code> (the optimal asymptotic), <code>"DataVar"</code> (the
+    data driven) and <code>"Id"</code> (the identity matrix). See Details.</p></td>
     </tr>
     <tr>
       <th>t_scheme</th>
-      <td><p>Scheme used to select the points where the moment conditions are
-    evaluated. User can choose between <code>"equally"</code> (equally placed),
+      <td><p>scheme used to select the points where the moment conditions are
+    evaluated, one of <code>"equally"</code> (equally placed),
     <code>"NonOptAr"</code> (non optimal arithmetic placement),
     <code>"uniformOpt"</code> (uniform optimal placement), <code>"ArithOpt"</code>
-    (arithmetic optimal placement) , <code>"Var Opt"</code>(optimal variance
-    placement) and <code>"free"</code> (user needs to pass his own set of point
-    in the <code>&#8230;</code>). See details.</p></td>
+    (arithmetic optimal placement), <code>"Var Opt"</code> (optimal variance
+    placement) and <code>"free"</code> (users need to pass their own set of
+    points in <code>&#8230;</code>). See Details.</p></td>
     </tr>
     <tr>
       <th>theta0</th>
-      <td><p>Initial guess for the 4 parameters values: If <code>NULL</code>, the
+      <td><p>initial guess for the 4 parameters values: if <code>NULL</code>, the
     Kogon-McCulloch method is called, see
-    <code><a href='KogonParamsEstim.html'>IGParametersEstim</a></code>; vector of length 4.</p></td>
+    <code><a href='IGParametersEstim.html'>IGParametersEstim</a></code>; vector of length 4.</p></td>
     </tr>
     <tr>
       <th>IterationControl</th>
-      <td><p>Only used if <code>type="IT"</code> or <code>type="Cue"</code> to control the
-    iterations. See details</p></td>
+      <td><p>only used if <code>type = "IT"</code> or <code>type = "Cue"</code> to control the
+    iterations. See Details.</p></td>
     </tr>
     <tr>
       <th>pm</th>
-      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm=0</code> (the
-    Nolan &#8216;S0&#8217; parametrisation).</p></td>
+      <td><p>parametrisation, an integer (0 or 1); default: <code>pm = 0</code>
+    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
     </tr>
     <tr>
       <th>PrintTime</th>
-      <td><p>Logical flag; if set to TRUE, the estimation duration is printed out to
-    the screen in a readable format (h/min/sec).</p></td>
+      <td><p>logical flag; if set to TRUE, the estimation duration is printed out
+    to the screen in a readable format (h/min/sec).</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
-      <td><p>Other arguments to pass to the regularisation function,
+      <td><p>other arguments to pass to the regularisation function,
     the optimisation function or the selection scheme (including the
-    function that finds the first zero of the eCF). See details.</p></td>
+    function that finds the first zero of the eCF). See Details.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><b>The moment conditions</b>
-  <!-- %\cr\cr -->
-  The moment conditions are given by:
-  $$g_t(X,\theta)=g(t,X;\theta)= e^{itX} - \phi_{\theta}(t)$$
-  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the same random variable \(X\), then:
-  $$\hat{g}_n(t,\theta)  = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta) =  \phi_n(t) -\phi_\theta(t)$$
+    <p><b>The moment conditions</b></p>
+<p>The moment conditions are given by:
+  $$g_t(X,\theta) = g(t,X;\theta)= e^{itX} - \phi_{\theta}(t)$$
+  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the
+  same random variable \(X\), then: 
+  $$\hat{g}_n(t,\theta)  = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta) =
+    \phi_n(t) -\phi_\theta(t),$$ 
   where \(\phi_n(t)\) is the eCF associated to the sample
-  \(x_1,\dots,x_n\) and defined by \(\phi_n(t)= \frac{1}{n} \sum_{j=1}^n e^{itX_j}\)
-  <!-- %\cr\cr -->
-  <b>Objective function</b>
-  <!-- %\cr\cr -->
-  $$obj{\theta}= &lt; K^{-1/2} \hat{g}_n(.;\theta),K^{-1/2}\hat{g}_n(.;\theta)&gt;$$
+  \(x_1,\dots,x_n\), and defined by
+  \(\phi_n(t)= \frac{1}{n} \sum_{j=1}^n e^{itX_j}\).</p>
+    <p><b>Objective function</b></p>
+<p>$$obj{\theta} =
+    &lt; K^{-1/2} \hat{g}_n(.;\theta),K^{-1/2}\hat{g}_n(.;\theta)&gt;,$$ 
   where \(K^{-1}f\) denotes the solution \(\varphi\) (when it
-  exists) of the equation \(K \varphi=f\) and \(K^{-1/2}=(K^{-1})^{1/2}\).
-  The optimal choice of the Weighting operator K (a matrix in the GMM case) and
-  its estimation are discussed in Hansen (1982).
-  <!-- %\cr\cr -->
-  <b>Weighting operator (Matrix)</b>
-  <!-- %\cr\cr --></p><dl class='dl-horizontal'>
-    <dt><code>OptAsym</code>:</dt><dd><p>the optimal asymptotic choice as described by
-    Hansen. The expression of the components of this matrix could be
-    found for example in Feuerverger and McDunnough (1981b)</p></dd>
-    <dt><code>DataVar</code>:</dt><dd><p>the covariance matrix of the data provided</p></dd>
-    <dt><code>Id</code>:</dt><dd><p>the identity matrix</p></dd>
-  </dl><p><!-- %\cr\cr -->
-  <b>the t-scheme</b>
-  <!-- %\cr\cr -->
-  One of the most improtant feature of this method is that it allows the
-  user to choose how to place the points where the moment conditions are
-  evaluated. The general rule is that user can provide his own set of
-  points (option <code>"free"</code>) or choose one of the other scheme. In the
-  latter case he <em>needs to specify the number of points</em>
-  <code>nb_t</code> in the <code>&#8230;</code> argument and eventually the lower and
-  upper limit (by setting <code>Constrained</code> to FALSE and
+  exists) of the equation \(K \varphi=f\) and
+  \(K^{-1/2}=(K^{-1})^{1/2}\).  The optimal choice of the Weighting
+  operator K (a matrix in the GMM case) and its estimation are discussed
+  in Hansen (1982).</p>
+    <p><b>Weighting operator (Matrix)</b></p>  
+<p></p><dl class='dl-horizontal'>
+    <dt><code>OptAsym</code>:</dt><dd><p>the optimal asymptotic choice as described by Hansen. The
+      expression of the components of this matrix could be found for
+      example in Feuerverger and McDunnough (1981b).</p></dd>
+    <dt><code>DataVar</code>:</dt><dd><p>the covariance matrix of the data provided.</p></dd>
+    <dt><code>Id</code>:</dt><dd><p>the identity matrix.</p></dd>
+  </dl>
+    <p><b>the t-scheme</b></p>
+<p>One of the most important features of this method is that it allows
+  the user to choose how to place the points where the moment conditions
+  are evaluated. The general rule is that users can provide their own
+  set of points (option <code>"free"</code>) or choose one of the other
+  schemes. In the latter case they <em>need to specify the number of
+  points</em> <code>nb_t</code> in argument <code>"\dots"</code> and eventually the
+  lower and upper limit (by setting <code>Constrained</code> to FALSE and
   providing <code>min_t</code> and <code>max_t</code>) in the non-optimised case. If
-  one of the optimised case is selected, setting <code>Constrained</code> to FALSE
-  will not constrain the choice of \(\tau\), see below.
-  We mean by optimised set of point, the set that minimises the
-  (determinant) of the asymptotic covariance matrix as suggested by
-  Schmidt (1982) and Besbeas and Morgan (2008).
-  <!-- %\cr -->
-  6 options have been implemented:</p><dl class='dl-horizontal'>
-    <dt><code>"equally"</code>:</dt><dd><p>equally placed point in
-      [<code>min_t</code>,<code>max_t</code>]. When provided, user's <code>min_t</code>
-      and <code>max_t</code> will be used (when<code>Coinstrained</code>=FALSE).
-      Otherwise, <code>eps</code> and <code>An</code> will be used instead (where
-      <code>An</code> is the first zero of the eCF)</p></dd>
-    <dt><code>"NonOptAr"</code>:</dt><dd><p>non optimal arithmetic
-      placement: \(t_j=\frac{j(j+1)}{nbt(nbt+1)} (max-eps);j=1,\dots,nbt\) where max
-    is the upper band of the set of points selected as discussed before.</p></dd>
-    <dt><code>"uniformOpt"</code>:</dt><dd><p>uniform optimal placement: \(t_j=j \tau, j=1,\dots nbt\)</p></dd>
+  one of the optimised cases is selected, setting <code>Constrained</code> to
+  FALSE will not constrain the choice of \(\tau\), see below.  We mean
+  by optimised set of point, the set that minimises the (determinant) of
+  the asymptotic covariance matrix as suggested by Schmidt (1982) and
+  Besbeas and Morgan (2008).</p>
+<p>6 options have been implemented:</p><dl class='dl-horizontal'>
+    <dt><code>"equally"</code>:</dt><dd><p>equally placed points in [<code>min_t</code>,<code>max_t</code>]. When
+      provided, user's <code>min_t</code> and <code>max_t</code> will be used (when
+      <code>Coinstrained = FALSE</code>).  Otherwise, <code>eps</code> and <code>An</code>
+      will be used instead (where <code>An</code> is the first zero of the
+      eCF).</p></dd>
+    <dt><code>"NonOptAr"</code>:</dt><dd><p>non optimal arithmetic placement: \(t_j =
+      \frac{j(j+1)}{nbt(nbt+1)}(max-eps); j=1,\dots,nbt\), where
+      \(max\) is the upper band of the set of points selected as
+      discussed before.</p></dd>
+    <dt><code>"uniformOpt"</code>:</dt><dd><p>uniform optimal placement: \(t_j=j \tau, j=1,\dots, nbt\)</p></dd>
     <dt><code>"ArithOpt"</code>:</dt><dd><p>arithmetic optimal placement: \(t_j=j(j+1) \tau, j=1,\dots nbt\)</p></dd>
     <dt><code>"Var Opt"</code>:</dt><dd><p>optimal variance placement as explained above.</p></dd>
-    <dt><code>"free"</code>:</dt><dd><p>user needs to pass his own set of point in the <code>&#8230;</code></p></dd>
-  </dl><p>For the <code>"ArithOpt"</code> and <code>"uniformOpt"</code> schemes, the function
-  to minimise is seen as a function of the real parameter \(\tau\)
-  instead of doing a vectorial optimisition as in the <code>"Var Opt"</code>
-  case. In the latter case, one can choose between a fast (but less
-  accurate) optimisation routine or a slow (but more accurate) one by
-  setting the <code>FastOptim</code> flag to the desired value.
-  <!-- %\cr\cr -->
-  <b>The IterationControl</b>
-  <!-- %\cr\cr -->
-  If <code>type="IT"</code> or <code>type="Cue"</code> user can control each
+    <dt><code>"free"</code>:</dt><dd><p>user needs to pass his own set of points in <code>"\dots"</code>.</p></dd>
+  </dl><p>For the <code>"ArithOpt"</code> and <code>"uniformOpt"</code> schemes, the
+  function to minimise is seen as a function of the real parameter
+  \(\tau\) instead of doing a vectorial optimisition as in the
+  <code>"Var Opt"</code> case. In the latter case, one can choose between a
+  fast (but less accurate) optimisation routine or a slow (but more
+  accurate) one by setting the <code>FastOptim</code> flag to the desired
+  value.</p>
+    <p><b>The IterationControl</b></p>
+<p>If <code>type = "IT"</code> or <code>type = "Cue"</code> the user can control each
   iteration by setting up the <code>list</code> <code>IterationControl</code> which
   contains the following elements:</p><dl class='dl-horizontal'>
-    <dt><code>NbIter</code>:</dt><dd><p>maximum number of iteration. The loop stops when <code>NBIter</code>
-      is reached; default=10</p></dd>
-    <dt><code>PrintIterlogical</code>:</dt><dd><p>if set to TRUE, the value of the current
-      parameter estimation is printed to the screen at each iteration; default=TRUE</p></dd>
-    <dt><code>RelativeErrMax</code>:</dt><dd><p>the loop stops if the relative error between two
-      consecutive estimation is smaller than
-      <code>RelativeErrMax</code>; default=1e-3</p></dd>
+    <dt><code>NbIter</code>:</dt><dd><p>maximum number of iteration. The loop stops when <code>NBIter</code> is
+      reached; default = 10.</p></dd>
+    <dt><code>PrintIterlogical</code>:</dt><dd><p>if set to TRUE, the value of the current parameter estimation is
+      printed to the screen at each iteration; default = TRUE.</p></dd>
+    <dt><code>RelativeErrMax</code>:</dt><dd><p>the loop stops if the relative error between two consecutive
+      estimation steps is smaller than <code>RelativeErrMax</code>; default =
+      1e-3.</p></dd>
   </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -282,8 +282,8 @@ select where the moment conditions are computed.</p>
 <dt>Estim</dt><dd><p>output of the optimisation function.</p></dd>
   <dt>duration</dt><dd><p>estimation duration in a numerical format.</p></dd>
   <dt>method</dt><dd><p><code>character</code> describing the method used.</p></dd>
-  <dt>tEstim</dt><dd><p>final set of points selected for the
-    estimation. Only relevant when one of the optimisation scheme is selected.</p></dd>
+  <dt>tEstim</dt><dd><p>final set of points selected for the estimation. Only relevant when
+    one of the optimisation scheme is selected.</p></dd>
 
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -324,14 +324,14 @@ Besbeas P and Morgan B (2008).
     <p><code>nlminb</code> was used for the minimisation of the GMM objective
   funcion and to compute \(tau\) in the <code>"uniformOpt"</code> and
   <code>"ArithOpt"</code> schemes. In the <code>"Var Opt"</code> scheme,
-  <code>optim</code> was preferred. All those routines have been
-  selected after running different tests using the summary table produced
-  by package <span class="pkg">optimx</span> for comparing the performance of different
+  <code>optim</code> was preferred. All those routines have been selected
+  after running different tests using the summary table produced by
+  package <span class="pkg">optimx</span> for comparing the performance of different
   optimisation methods.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='EstimFct.html'>Estim</a></code>,
+    <div class='dont-index'><p><code><a href='Estim.html'>Estim</a></code>,
   <code><a href='CgmmParamsEstim.html'>CgmmParametersEstim</a></code></p></div>
     
 
@@ -353,12 +353,12 @@ Besbeas P and Morgan B (2008).
 <span class='no'>t_scheme</span> <span class='kw'>=</span> <span class='st'>"free"</span>
 <span class='no'>algo</span> <span class='kw'>=</span> <span class='st'>"2SGMM"</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/warning'>suppressWarnings</a></span>(<span class='fu'>GMMParametersEstim</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>,
-                                    <span class='kw'>algo</span> <span class='kw'>=</span> <span class='no'>algo</span>, <span class='kw'>alphaReg</span> <span class='kw'>=</span> <span class='no'>alphaReg</span>,
-                                    <span class='kw'>regularization</span> <span class='kw'>=</span> <span class='no'>regularization</span>,
-                                    <span class='kw'>WeightingMatrix</span> <span class='kw'>=</span> <span class='no'>WeightingMatrix</span>,
-                                    <span class='kw'>t_scheme</span> <span class='kw'>=</span> <span class='no'>t_scheme</span>,
-                                    <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>, <span class='kw'>PrintTime</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>t_free</span> <span class='kw'>=</span> <span class='no'>t_seq</span>))</div><div class='output co'>#&gt; [1] "GMMParametersEstim_2SGMM_free :duration= 0  h, 0  min, 0  sec. "</div><div class='output co'>#&gt; $Estim
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/warning'>suppressWarnings</a></span>(<span class='fu'>GMMParametersEstim</span>(
+    <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>algo</span> <span class='kw'>=</span> <span class='no'>algo</span>, <span class='kw'>alphaReg</span> <span class='kw'>=</span> <span class='no'>alphaReg</span>,
+    <span class='kw'>regularization</span> <span class='kw'>=</span> <span class='no'>regularization</span>,
+    <span class='kw'>WeightingMatrix</span> <span class='kw'>=</span> <span class='no'>WeightingMatrix</span>,
+    <span class='kw'>t_scheme</span> <span class='kw'>=</span> <span class='no'>t_scheme</span>,
+    <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>, <span class='kw'>PrintTime</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>t_free</span> <span class='kw'>=</span> <span class='no'>t_seq</span>))</div><div class='output co'>#&gt; [1] "GMMParametersEstim_2SGMM_free :duration= 0  h, 0  min, 0  sec. "</div><div class='output co'>#&gt; $Estim
 #&gt; $Estim$par
 #&gt;      alpha                 gamma      delta 
 #&gt;  1.4357577  0.8210212  1.0040717 -0.1286401 
@@ -382,7 +382,7 @@ Besbeas P and Morgan B (2008).
 #&gt; 
 #&gt; $duration
 #&gt; elapsed 
-#&gt;   0.171 
+#&gt;   0.173 
 #&gt; 
 #&gt; $method
 #&gt; [1] "2SGMM_nb_t=12_alphaReg=0.005_regularization=cut-off_WeightingMatrix=OptAsym_t_scheme=free_OptimAlgo=nlminb"

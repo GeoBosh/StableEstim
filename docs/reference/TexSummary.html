@@ -114,41 +114,41 @@
     </div>
 
     <pre class="usage"><span class='fu'>TexSummary</span>(<span class='no'>obj</span>, <span class='kw'>files</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sep_</span> <span class='kw'>=</span> <span class='st'>","</span>, <span class='kw'>FctsToApply</span> <span class='kw'>=</span> <span class='no'>StatFcts</span>,
-           <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"Statistical Summary"</span>,<span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Simtab"</span>,
-           <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>par_index</span> <span class='kw'>=</span> <span class='fl'>1</span>,<span class='kw'>MCparam</span><span class='kw'>=</span><span class='fl'>1000</span>,<span class='no'>...</span>)</pre>
+           <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"Statistical Summary"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Simtab"</span>,
+           <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>par_index</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>MCparam</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>obj</th>
-      <td><p><code>list</code> of <code>length</code> 4 containing a summary <code>matrix</code> object
-    associated to each parameter identical to the one produced by the
-    function <code><a href='Output.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
+      <td><p><code>list</code> of length 4 containing a summary <code>matrix</code>
+    object associated to each parameter identical to the one produced by
+    function <code><a href='ComputeStatObjectFromFiles.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
     </tr>
     <tr>
       <th>files</th>
       <td><p><code>character</code> vector containing the files name to be parsed. It
-    will be passed to function <code><a href='Output.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
+    will be passed to function <code><a href='ComputeStatObjectFromFiles.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
     </tr>
     <tr>
       <th>sep_</th>
-      <td><p>Field separator character to be passed to the function
-    <code><a href='Output.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
+      <td><p>field separator character to be passed to function
+    <code><a href='ComputeStatObjectFromFiles.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
     </tr>
     <tr>
       <th>FctsToApply</th>
-      <td><p>Functions used to produce the statistical summary to be passed
-    to the function <code><a href='Output.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
+      <td><p>functions used to produce the statistical summary to be passed
+    to the function <code><a href='ComputeStatObjectFromFiles.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
     </tr>
     <tr>
       <th>caption</th>
-      <td><p><code>character</code> vector with length equal to length <code>par_index</code>
+      <td><p><code>character</code> vector with length equal to <code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(par_index)</a></code>
     containing the table's caption or title.</p></td>
     </tr>
     <tr>
       <th>label</th>
-      <td><p><code>Character</code> vector with length equal to length <code>par_index</code>
+      <td><p><code>character</code> vector with length equal to <code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(par_index)</a></code> 
     containing the LaTeX label.</p></td>
     </tr>
     <tr>
@@ -161,38 +161,37 @@
     </tr>
     <tr>
       <th>par_index</th>
-      <td><p><code>numeric</code> or <code>character</code> vector of length 1,2,3 or 4 of the
-    desired indexes to be selected in <code>obj</code>. See details</p></td>
+      <td><p><code>numeric</code> or <code>character</code> vector of length 1, 2, 3 or 4 of
+    the desired indices to be selected in <code>obj</code>. See Details.</p></td>
     </tr>
     <tr>
       <th>MCparam</th>
-      <td><p>Number of Monte Carlo simulation for each couple of parameter,
-      default=1000; integer</p></td>
+      <td><p>number of Monte Carlo simulations for each couple of parameters,
+    default = 1000; integer.</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
-      <td><p>Other arguments to be passed to the function
-    <code><a href='Output.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
+      <td><p>other arguments to be passed to function
+    <code><a href='ComputeStatObjectFromFiles.html'>ComputeStatObjectFromFiles</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
+    
     <p>Accepted values for <code>par_index</code> are <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c(1,2,3,4)</a></code> or
-  <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("alpha","beta","gamma","delta")</a></code> or mixed.
-  <!-- %\cr\cr -->
-  Some examples are provided in the example folder.
-  <!-- %\cr\cr --></p>
+  <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("alpha","beta","gamma","delta")</a></code> or mixed.</p>
+<p>Some examples are provided in the example folder.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>list</code> of objects (same length as <code>par_index</code>) from class
-  <code>Latex</code>. See  <code>toLatex</code></p>
+    <p>a <code>list</code> of length <code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(par_index)</a></code> whose elements are
+  objects from class <code>Latex</code> (produced by <code>toLatex</code>)</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>,
-  <code><a href='Output.html'>ComputeStatObjectFromFiles</a></code>,
+  <code><a href='ComputeStatObjectFromFiles.html'>ComputeStatObjectFromFiles</a></code>,
   <code>xtable</code></p></div>
     
 

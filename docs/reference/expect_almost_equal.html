@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>First root of the empirical characteristic function — ComputeFirstRootRealeCF • StableEstim</title>
+<title>Test approximate equality — expect_almost_equal • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="First root of the empirical characteristic function — ComputeFirstRootRealeCF" />
+<meta property="og:title" content="Test approximate equality — expect_almost_equal" />
 
-<meta property="og:description" content="Computes the first root of the real part of the empirical
-  characteristic function." />
+<meta property="og:description" content="Tests the approximate equality of 2 objects. Useful for running tests." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,81 +102,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>First root of the empirical characteristic function</h1>
+    <h1>Test approximate equality</h1>
     
-    <div class="hidden name"><code>FirstRoot.Rd</code></div>
+    <div class="hidden name"><code>expect_almost_equal.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Computes the first root of the real part of the empirical
-  characteristic function.</p>
+    <p>Tests the approximate equality of 2 objects. Useful for running tests.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ComputeFirstRootRealeCF</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>0.001</span>, <span class='kw'>maxIter</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-                        <span class='kw'>lowerBand</span> <span class='kw'>=</span> <span class='fl'>1e-04</span>, <span class='kw'>upperBand</span> <span class='kw'>=</span> <span class='fl'>30</span>)</pre>
+    <pre class="usage"><span class='fu'>expect_almost_equal</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>tolExpect</span> <span class='kw'>=</span> <span class='fl'>0.001</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>Data used to perform the estimation: vector of length n.</p></td>
+      <td><p>first object.</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
-      <td><p>Other arguments to pass to the optimisation function.</p></td>
+      <th>y</th>
+      <td><p>second object.</p></td>
     </tr>
     <tr>
-      <th>tol</th>
-      <td><p>Tolerance to accept the solution; default=1e-3.</p></td>
-    </tr>
-    <tr>
-      <th>maxIter</th>
-      <td><p>maximum number of iteration in the Welsh algorithm; default=100.</p></td>
-    </tr>
-    <tr>
-      <th>lowerBand</th>
-      <td><p>Lower band of the domain where the graphical seach is performed;
-    default=1e-4.</p></td>
-    </tr>
-    <tr>
-      <th>upperBand</th>
-      <td><p>Lower band of the domain where the graphical seach is performed;
-    default=30.</p></td>
+      <th>tolExpect</th>
+      <td><p>tolerance, default is 0.001.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The Welsh algorithm is first applied. If it fails to provide a
-  satisfactory value (<code>&lt; tol</code>), a graphical/ numerical  approach is
-  used. We first plot the real part of the eCF vs t in order to determine the
-  first zero directly and use it as the initial guess of a numerical
-  minimisation routine.</p>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p><code>numeric</code>: first zero of the real part of the eCF.</p>
-    
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p><!-- % bibentry: welsh1986implementing -->
-Welsh A (1986).
-``Implementing empirical characteristic function procedures.''
-<em>Statistics \&amp; probability letters</em>, <b>4</b>(2), pp. 65--67.
-<!-- % end:bibentry:  welsh1986implementing --></p>
+    <p>This function works with the <code>expect_that</code> function from package
+  <code>testhat</code> to test equality between 2 objects with a given
+  tolerance. It is used particularly for testing functions output. See the
+  CF examples in the Examples folder.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='CF.html'>ComplexCF</a></code></p></div>
+    <div class='dont-index'><p><code>expect_that</code>,<code>testthat</code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>345</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rstable</span>(<span class='fl'>500</span>, <span class='fl'>1.5</span>, <span class='fl'>0.5</span>)
-<span class='fu'>ComputeFirstRootRealeCF</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] 2.302698</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fl'>1.1</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fl'>1.5</span>
+<span class='fu'>expect_almost_equal</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='fl'>1</span>)      <span class='co'># passes</span></div><div class='output co'>#&gt; As expected </div><div class='input'>## expect_almost_equal(x, y, 0.3) # fails
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -185,10 +156,6 @@ Welsh A (1986).
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

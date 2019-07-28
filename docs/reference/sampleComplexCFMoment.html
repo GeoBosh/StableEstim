@@ -33,7 +33,7 @@
 <meta property="og:title" content="Complex moment condition based on the characteristic function — sampleComplexCFMoment" />
 
 <meta property="og:description" content="Computes the moment condition based on the characteristic function as
-  a complexl vector." />
+  a complex vector." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,7 +111,7 @@
     <div class="ref-description">
     
     <p>Computes the moment condition based on the characteristic function as
-  a complexl vector.</p>
+  a complex vector.</p>
     
     </div>
 
@@ -130,27 +130,32 @@
     </tr>
     <tr>
       <th>theta</th>
-      <td><p>Vector of parameters of the stable law; vector of length 4.</p></td>
+      <td><p>vector of parameters of the stable law; vector of length 4.</p></td>
     </tr>
     <tr>
       <th>pm</th>
-      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm=0</code>(
-    the Nolan &#8216;S0&#8217; parametrisation).</p></td>
+      <td><p>parametrisation, an integer (0 or 1); default: <code>pm=0</code>
+    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><b>The moment conditions</b>
-  <!-- %\cr\cr -->
-  The moment conditions are given by:
-  $$g_t(X,\theta)=g(t,X;\theta)= e^{itX} - \phi_{\theta}(t)$$
-  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the same random variable \(X\), then:
-  $$\hat{g}_n(t,\theta)  = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta) =  \phi_n(t) -\phi_\theta(t)$$
+    <p><b>The moment conditions</b></p>
+<p>The moment conditions are given by:
+  $$g_t(X,\theta) = g(t,X;\theta)= e^{itX} - \phi_{\theta}(t)$$
+  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the
+  same random variable \(X\), then: 
+  $$\hat{g}_n(t,\theta)
+    = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta)
+    =  \phi_n(t) - \phi_\theta(t)
+    ,
+  $$
   where \(\phi_n(t)\) is the eCF associated to the sample
-  \(x_1,\dots,x_n\) and defined by \(\phi_n(t)= \frac{1}{n} \sum_{j=1}^n e^{itX_j}\)
-  <!-- %\cr\cr -->
-  The function compute the vector of difference between the eCF and the CF at a set of given point <code>t</code>.</p>
+  \(x_1,\dots,x_n\), and defined by
+  \(\phi_n(t) = \frac{1}{n} \sum_{j=1}^n e^{itX_j}\).</p>
+<p>The function compute the vector of difference between the eCF and the
+  CF at a set of given point <code>t</code>.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -158,7 +163,7 @@
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='CF.html'>ComplexCF</a></code>,
+    <div class='dont-index'><p><code><a href='ComplexCF.html'>ComplexCF</a></code>,
   <code><a href='sampleRealCFMoment.html'>sampleRealCFMoment</a></code></p></div>
     
 

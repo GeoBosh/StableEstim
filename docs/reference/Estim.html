@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Real moment condition based on the characteristic function — sampleRealCFMoment • StableEstim</title>
+<title>Estimate parameters of stable laws — Estim • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,14 @@
 
 
 
-<meta property="og:title" content="Real moment condition based on the characteristic function — sampleRealCFMoment" />
+<meta property="og:title" content="Estimate parameters of stable laws — Estim" />
 
-<meta property="og:description" content="Computes the moment condition based on the characteristic function as
-  a real vector." />
+<meta property="og:description" content="" />
+
+<meta property="og:description" content="Estimates the four parameters of stable distributions using one of the
+  methods implemented in StableEstim. This is the main user-level
+  function but the individul methods are available also as separate
+  functions." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,93 +107,108 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Real moment condition based on the characteristic function</h1>
+    <h1>Estimate parameters of stable laws</h1>
     
-    <div class="hidden name"><code>sampleRealCFMoment.Rd</code></div>
+    <div class="hidden name"><code>Estim.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Computes the moment condition based on the characteristic function as
-  a real vector.</p>
+    
+
+    <p>Estimates the four parameters of stable distributions using one of the
+  methods implemented in <span class="pkg">StableEstim</span>. This is the main user-level
+  function but the individul methods are available also as separate
+  functions.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>sampleRealCFMoment</span>(<span class='no'>x</span>, <span class='no'>t</span>, <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
+    <pre class="usage"><span class='fu'>Estim</span>(<span class='kw'>EstimMethod</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ML"</span>, <span class='st'>"GMM"</span>, <span class='st'>"Cgmm"</span>,<span class='st'>"Kout"</span>), <span class='no'>data</span>, <span class='kw'>theta0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+      <span class='kw'>ComputeCov</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>HandleError</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>vector of data where the ecf is computed.</p></td>
+      <th>EstimMethod</th>
+      <td><p>Estimation method to be used, one of <code>"ML"</code> (maximum
+    likelihood, default), <code>"GMM"</code> (generalised method of moment with finite
+    moment conditions), <code>"Cgmm"</code> (GMM with continuum moment
+    conditions), and <code>"Kout"</code> (Koutrouvelis regression method).</p></td>
     </tr>
     <tr>
-      <th>t</th>
-      <td><p>vector of (real) numbers where the CF is evaluated; numeric.</p></td>
+      <th>data</th>
+      <td><p>Data used to perform the estimation, a numeric vector.</p></td>
     </tr>
     <tr>
-      <th>theta</th>
-      <td><p>vector of parameters of the stable law; vector of length 4.</p></td>
+      <th>theta0</th>
+      <td><p>Initial values for the 4 parameters. If <code>NULL</code> (default),
+    initial values are computed using the fast Kogon-McCulloch method,
+    see <code><a href='IGParametersEstim.html'>IGParametersEstim</a></code>; vector of length 4.</p></td>
     </tr>
     <tr>
-      <th>pm</th>
-      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm=0</code>
-    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
+      <th>ComputeCov</th>
+      <td><p>Logical flag: if <code>TRUE</code>, the asymptotic covariance matrix (4x4)
+    is computed (except for the Koutrouvelis method).</p></td>
+    </tr>
+    <tr>
+      <th>HandleError</th>
+      <td><p>Logical flag: if <code>TRUE</code> and if an error occurs during the
+    estimation procedure, the computation will carry on and <code>NA</code>
+    will be returned. Useful for Monte Carlo simulations, see
+    <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>&#8230;</th>
+      <td><p>Other arguments to be passed to the estimation function, such as the
+    asymptotic confidence level, see Details.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><b>The moment conditions</b></p>
-<p>The moment conditions are given by:
-  $$g_t(X,\theta)
-    = g(t,X;\theta)
-    = e^{itX} - \phi_{\theta}(t)
-    .
-  $$
-  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the
-  same random variable \(X\), then: 
-  $$\hat{g}_n(t,\theta)
-    = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta)
-    = \phi_n(t) -\phi_\theta(t)
-    ,
-  $$
-  where \(\phi_n(t)\) is the eCF associated with the sample
-  \(x_1,\dots,x_n\), and defined by
-  \(\phi_n(t) = \frac{1}{n} \sum_{j=1}^n e^{itX_j}\).</p>
-<p>The function compute the vector of difference between the eCF and the
-  CF at a set of given point <code>t</code>.  If <code>length(t) = n</code>, the
-  resulting vector will be of <code>length = 2n</code>, where the first
-  <code>n</code> components will be the real part and the remaining the
-  imaginary part.</p>
+    
+    <p><code>Estim</code> is the main estimation function in package
+  <span class="pkg">StableEstim</span>.</p>
+<p>This function should be used in priority for estimation purpose as it
+  provides more information about the estimator. However, user needs to
+  pass the appropriate parameters to the selected method in
+  <code>&#8230;</code>. See the documentation of the selected method.</p>
+<p><b>Asymptotic Confidence Intervals</b>:
+  The <em>normal</em> asymptotic confidence intervals (CI) are computed.
+  The user can set the <em>level</em> of confidence by inputing the
+  <code>level</code> argument (in the <code>"\dots"</code>); default
+  <code>level=0.95</code>. The theoretical justification for asymptotic normal
+  CI can be found in the references for the individual methods. Note the
+  CI's are not computed for the Koutrouvelis regression method.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a vector of length <code>2 * length(t)</code>.</p>
+    <p>an object of class <code>Estim</code>, see <code><a href='Estim-class.html'>Estim-class</a></code> for
+  more details</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ComplexCF.html'>ComplexCF</a></code>,
-  <code><a href='sampleComplexCFMoment.html'>sampleComplexCFMoment</a></code></p></div>
+    <div class='dont-index'></div>
+    <div class='dont-index'><p><code><a href='CgmmParamsEstim.html'>CgmmParametersEstim</a></code>,
+  <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>,
+  <code><a href='MLParametersEstim.html'>MLParametersEstim</a></code>,
+  <code><a href='KoutParamsEstim.html'>KoutParametersEstim</a></code> for the individual estimation
+  methods;</p>
+<p><code><a href='IGParametersEstim.html'>IGParametersEstim</a></code> for fast computation of initial
+  values.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## define the parameters</span>
-<span class='no'>nt</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
-<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>3</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>nt</span>)
-<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
+    <pre class="examples"><div class='input'><span class='co'>## general inputs</span>
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.45</span>, <span class='fl'>0.55</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
 <span class='no'>pm</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>222</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>2345</span>)
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rstable</span>(<span class='fl'>200</span>, <span class='no'>theta</span>[<span class='fl'>1</span>], <span class='no'>theta</span>[<span class='fl'>2</span>], <span class='no'>theta</span>[<span class='fl'>3</span>], <span class='no'>theta</span>[<span class='fl'>4</span>], <span class='no'>pm</span>)
 
-<span class='co'># Compute the characteristic function</span>
-<span class='no'>CFMR</span> <span class='kw'>&lt;-</span> <span class='fu'>sampleRealCFMoment</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>t</span> <span class='kw'>=</span> <span class='no'>t</span>, <span class='kw'>theta</span> <span class='kw'>=</span> <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>)
-<span class='no'>CFMR</span></div><div class='output co'>#&gt;  [1]  0.006242431 -0.020703369 -0.072449040 -0.050660290 -0.040969284
-#&gt;  [6] -0.028959753 -0.029889636 -0.015320422 -0.032306259 -0.017038430
-#&gt; [11] -0.004761586  0.057950623  0.064189392  0.051092006  0.022624526
-#&gt; [16]  0.036014037  0.060445754  0.058259580  0.050194423 -0.014834322</div></pre>
+<span class='no'>objKout</span> <span class='kw'>&lt;-</span> <span class='fu'>Estim</span>(<span class='kw'>EstimMethod</span> <span class='kw'>=</span> <span class='st'>"Kout"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>,
+                     <span class='kw'>ComputeCov</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>HandleError</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+                     <span class='kw'>spacing</span> <span class='kw'>=</span> <span class='st'>"Kout"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

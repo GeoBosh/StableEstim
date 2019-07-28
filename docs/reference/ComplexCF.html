@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parse an output file to create a summary object (<code>list</code>) — StatObjectFromFiles • StableEstim</title>
+<title>Compute the characteristic function of stable laws — ComplexCF • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,11 @@
 
 
 
-<meta property="og:title" content="Parse an output file to create a summary object (<code>list</code>) — StatObjectFromFiles" />
+<meta property="og:title" content="Compute the characteristic function of stable laws — ComplexCF" />
 
-<meta property="og:description" content="Parses the file saved by Estim_Simulation and re-creates
-  a summary list identical to the one produced by
-  Estim_Simulation when StatSummary is set to TRUE." />
+<meta property="og:description" content="Theoretical characteristic function (CF) of stable laws under
+  parametrisation &amp;#8216;S0&amp;#8217; or &amp;#8216;S1&amp;#8217;. See Nolan (2013) for more
+  details." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,105 +104,75 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parse an output file to create a summary object (<code>list</code>)</h1>
+    <h1>Compute the characteristic function of stable laws</h1>
     
-    <div class="hidden name"><code>Output.Rd</code></div>
+    <div class="hidden name"><code>ComplexCF.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Parses the file saved by <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code> and re-creates
-  a summary list identical to the one produced by
-  <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code> when <code>StatSummary</code> is set to TRUE.</p>
+    <p>Theoretical characteristic function (CF) of stable laws under
+  parametrisation &#8216;S0&#8217; or &#8216;S1&#8217;. See Nolan (2013) for more
+  details.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ComputeStatObjectFromFiles</span>(<span class='no'>files</span>, <span class='kw'>sep_</span> <span class='kw'>=</span> <span class='st'>","</span>,
-                           <span class='kw'>FctsToApply</span> <span class='kw'>=</span> <span class='no'>StatFcts</span>,
-                           <span class='kw'>headers_</span><span class='kw'>=</span><span class='fl'>TRUE</span>,<span class='kw'>readSizeFrom</span><span class='kw'>=</span><span class='fl'>1</span>,
-                           <span class='kw'>CheckMat</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-                           <span class='kw'>tolFailCheck</span><span class='kw'>=</span><span class='no'>tolFailure</span>,
-                           <span class='kw'>MCparam</span><span class='kw'>=</span><span class='fl'>1000</span>,<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>ComplexCF</span>(<span class='no'>t</span>, <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>files</th>
-      <td><p><code>character</code> vector containing the files name to be parsed.
-    See details.</p></td>
+      <th>t</th>
+      <td><p>vector of (real) numbers where the CF is evaluated; numeric.</p></td>
     </tr>
     <tr>
-      <th>sep_</th>
-      <td><p>Field separator character to be used in function
-    <code><a href='https://www.rdocumentation.org/packages/utils/topics/read.table'>read.csv()</a></code> and <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>write.table()</a></code>.
-    Values on each line of the file are separated by
-    this character; It can also be a vector character
-    (same length as <code>files</code>) if different separators are useed for
-    each file; default: ",".</p></td>
+      <th>theta</th>
+      <td><p>vector of parameters of the stable law; vector of length 4.</p></td>
     </tr>
     <tr>
-      <th>FctsToApply</th>
-      <td><p>Functions used to produce the statistical summary.
-    See <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>; vector of <code>character</code>.</p></td>
-    </tr>
-    <tr>
-      <th>headers_</th>
-      <td><p>Vector of <code>boolean</code> of length 1 or same length as <code>files</code>
-    to indicate for each file if the header argument is to be considered
-    or not. To be passed to function <code><a href='https://www.rdocumentation.org/packages/utils/topics/read.table'>read.csv()</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>readSizeFrom</th>
-      <td><p>index of the file from which the sample sizes are
-    determined; default 1 (from first file in <code>files</code>)</p></td>
-    </tr>
-    <tr>
-      <th>CheckMat</th>
-      <td><p>Logical flag: if set to TRUE, an estimation is
-    declared failed if the squared error of the estimation is larger
-    than <code>tolFailCheck</code>; default TRUE</p></td>
-    </tr>
-    <tr>
-      <th>tolFailCheck</th>
-      <td><p>Tolerance on the squared error of the estimation
-    to be declared failed; default 1.5</p></td>
-    </tr>
-    <tr>
-      <th>MCparam</th>
-      <td><p>Number of Monte Carlo simulation for each couple of parameter,
-      default=1000; integer.</p></td>
-    </tr>
-    <tr>
-      <th>&#8230;</th>
-      <td><p>Other arguments to be passed to the estimation function.
-    See <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>.</p></td>
+      <th>pm</th>
+      <td><p>parametrisation, an integer (0 or 1); default: <code>pm = 0</code>
+    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The same sample sizes are assumed for all the files and we also assume a different
-  set of parameters (<code>alpha</code>,<code>beta</code>) within each file (one and
-  one only).
-  <!-- %\cr\cr -->
-  This function is particularly useful when simulations are run in parallel
-  on different computers/CPUs and the output files are collected
-  afterwards. This function is also used to create the Latex summary
-  table: see <code><a href='TexSummary.html'>TexSummary</a></code>.
-  <!-- %\cr\cr -->
-  Some examples are provided in the example folder.</p>
+    <p>For more details about the different parametrisation of the CF, see
+  <em>Nolan(2013)</em>.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list of <code>length</code> 4 containing a summary <code>matrix</code> object
-  associated to each parameter.</p>
+    <p>vector of complex numbers with dimension <code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(t)</a></code>.</p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p><!-- % bibentry: nolan:2013 -->
+Nolan JP (2013).
+<em>Stable Distributions - Models for Heavy Tailed Data</em>.
+Birkhauser, Boston.
+In progress, Chapter 1 online at academic2.american.edu/\$sim\$jpnolan.
+<!-- % end:bibentry:  nolan:2013 --></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='Estim_Simulation.html'>Estim_Simulation</a></code></p></div>
+    <div class='dont-index'><p><code><a href='jacobianComplexCF.html'>jacobianComplexCF</a></code></p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## define the parameters</span>
+<span class='no'>nt</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
+<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>3</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>nt</span>)
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
+<span class='no'>pm</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
+
+<span class='co'>## Compute the characteristic function</span>
+<span class='no'>CF</span> <span class='kw'>&lt;-</span> <span class='fu'>ComplexCF</span>(<span class='kw'>t</span> <span class='kw'>=</span> <span class='no'>t</span>, <span class='kw'>theta</span> <span class='kw'>=</span> <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>)
+<span class='no'>CF</span></div><div class='output co'>#&gt;  [1] 0.968305811+0.033117936i 0.757986409+0.056143306i 0.525387123+0.026851945i
+#&gt;  [4] 0.332271933-0.005812349i 0.193104300-0.024061787i 0.102956859-0.027785107i
+#&gt;  [7] 0.049972446-0.023103095i 0.021746183-0.015850609i 0.008231545-0.009409216i
+#&gt; [10] 0.002521428-0.004930514i</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -213,8 +183,12 @@
 
       <li><a href="#value">Value</a></li>
 
+      <li><a href="#references">References</a></li>
+
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

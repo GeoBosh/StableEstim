@@ -118,16 +118,16 @@
         
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The functions computed are:</p><dl class='dl-horizontal'>
+    <p>The functions are:</p><dl class='dl-horizontal'>
     <dt>Mean</dt><dd><p><code>.mean &lt;- function(p,...) mean(p)</code></p></dd>
     <dt>Min</dt><dd><p><code>.min &lt;- function(p,...) min(p)</code></p></dd>
     <dt>Max</dt><dd><p><code>.max &lt;- function(p,...) max(p)</code></p></dd>
     <dt>Sn</dt><dd><p><code>.Sn &lt;- function(p,n,...) sqrt(n)*sd(p)</code></p></dd>
     <dt>MSE</dt><dd><p><code>.MSE &lt;- function(p,paramT,...) (1/length(p))*sum((p-paramT)^2) </code></p></dd>
     <dt>Std error</dt><dd><p><code>.st.err &lt;- function(p,...) sd(p)/sqrt(length(p))</code></p></dd>
-  </dl><p>When user wants to change the statiscal summary, he needs to provides
-  function with similar signatures and pass the a <code>character</code>
-  vector containing the function names to <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>.</p>
+  </dl><p>To change the statistical summary, provide functions with similar
+  signatures and pass a character vector containing the function
+  names to <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>.</p>
     
 
   </div>

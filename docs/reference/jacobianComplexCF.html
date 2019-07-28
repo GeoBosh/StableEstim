@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Maximum likelihood (ML) method — MLParametersEstim • StableEstim</title>
+<title>Jacobian of the characteristic function of stable laws — jacobianComplexCF • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,11 @@
 
 
 
-<meta property="og:title" content="Maximum likelihood (ML) method — MLParametersEstim" />
+<meta property="og:title" content="Jacobian of the characteristic function of stable laws — jacobianComplexCF" />
 
-<meta property="og:description" content="Uses the numerical ML approach described by Nolan to estimate the 4
-  parameters of stable law. The method may be slow for large sample size
-  due to the use of numerical optimisation routine." />
+<meta property="og:description" content="Numeric jacobian of the  characteristic function (CF) as a function of
+  the parameter \(\theta\) evaluated at a specific (vector) point
+  t and a given value \(\theta\)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,94 +104,65 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Maximum likelihood (ML) method</h1>
+    <h1>Jacobian of the characteristic function of stable laws</h1>
     
-    <div class="hidden name"><code>MLEstimFct.Rd</code></div>
+    <div class="hidden name"><code>jacobianComplexCF.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Uses the numerical ML approach described by Nolan to estimate the 4
-  parameters of stable law. The method may be slow for large sample size
-  due to the use of numerical optimisation routine.</p>
+    <p>Numeric jacobian of the  characteristic function (CF) as a function of
+  the parameter \(\theta\) evaluated at a specific (vector) point
+  <code>t</code> and a given value \(\theta\).</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>MLParametersEstim</span>(<span class='no'>x</span>, <span class='kw'>theta0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>PrintTime</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>jacobianComplexCF</span>(<span class='no'>t</span>, <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>Data used to perform the estimation: vector of length n.</p></td>
+      <th>t</th>
+      <td><p>vector of (real) numbers where the jacobian of the CF is evaluated;
+    numeric.</p></td>
     </tr>
     <tr>
-      <th>theta0</th>
-      <td><p>Initial guess for the 4 parameters values: If <code>NULL</code>, the
-    Kogon-McCulloch method is called, see <code><a href='KogonParamsEstim.html'>IGParametersEstim</a></code>;
-    a vector of length 4.</p></td>
+      <th>theta</th>
+      <td><p>vector of parameters of the stable law; vector of length 4.</p></td>
     </tr>
     <tr>
       <th>pm</th>
-      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm=0</code> (the
-    Nolan &#8216;S0&#8217; parametrisation).</p></td>
-    </tr>
-    <tr>
-      <th>PrintTime</th>
-      <td><p>Logical flag; if set to TRUE, the estimation duration is printed out to
-    the screen in a readable format (h/min/sec).</p></td>
-    </tr>
-    <tr>
-      <th>&#8230;</th>
-      <td><p>Other argument to be passed to the optimisation function.</p></td>
+      <td><p>parametrisation, an integer (0 or 1); default: <code>pm = 0</code>
+    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The function performs the minimisation of the numerical (-)log-density of
-  stable law computed by function <code>dstable</code>
-  from the <span class="pkg">stabledist</span> package. 
-  <!-- %\cr\cr -->
-  After testing several optimisation routines, we have found out
-  that the <code>"L-BFGS-B"</code> algorithm performs better
-  with the ML method (faster, more accurate).</p>
+    <p>The numerical derivation is obtained by a call to the function
+  <code>jacobian</code> from package <span class="pkg">numDeriv</span>. We have set up its
+  arguments by default and the user is not given the option to modify
+  them.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a list with the following elements:</p>
-<dt>Estim </dt><dd><p>output of the optimisation function</p></dd>
-  <dt>duration</dt><dd><p>estimation duration in a numerical format</p></dd>
-  <dt>method</dt><dd><p><code>character</code> describing the method used</p></dd>
-
-    
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
-
-    <p><!-- % bibentry: nolan2001maximum -->
-Nolan J (2001).
-``Maximum likelihood estimation and diagnostics for stable distributions.''
-<em>L'evy processes: theory and applications</em>, pp. 379--400.
-<!-- % end:bibentry:  nolan2001maximum --></p>
+    <p>a matrix <code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(t)</a></code> \(\times \) 4 of complex numbers.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='EstimFct.html'>Estim</a></code></p></div>
+    <div class='dont-index'><p><code><a href='ComplexCF.html'>ComplexCF</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.4</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
+    <pre class="examples"><div class='input'><span class='co'>## define the parameters</span>
+<span class='no'>nt</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
+<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>3</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>nt</span>)
+<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
 <span class='no'>pm</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
-<span class='co'>## 50 points does not give accurate estimation</span>
-<span class='co'>## but it makes estimation fast for installation purposes</span>
-<span class='co'>## use at least 200 points to get decent results.</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1333</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rstable</span>(<span class='fl'>50</span>, <span class='no'>theta</span>[<span class='fl'>1</span>], <span class='no'>theta</span>[<span class='fl'>2</span>], <span class='no'>theta</span>[<span class='fl'>3</span>], <span class='no'>theta</span>[<span class='fl'>4</span>], <span class='no'>pm</span>)
 
-<span class='co'>## This example takes &gt; 30 sec hence commented out</span></div><span class='co'># NOT RUN {</span>
-  <span class='no'>ML</span> <span class='kw'>&lt;-</span> <span class='fu'>MLParametersEstim</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>, <span class='kw'>PrintTime</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='co'># }</span><div class='input'>## see the Examples folder for more examples.
-</div></pre>
+<span class='co'>## Compute the jacobian of the characteristic function</span>
+<span class='no'>jack_CF</span> <span class='kw'>&lt;-</span> <span class='fu'>jacobianComplexCF</span>(<span class='kw'>t</span> <span class='kw'>=</span> <span class='no'>t</span>, <span class='kw'>theta</span> <span class='kw'>=</span> <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -201,8 +172,6 @@ Nolan J (2001).
       <li><a href="#details">Details</a></li>
 
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

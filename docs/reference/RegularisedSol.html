@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compute the characteristic function of the stable laws — ComplexCF • StableEstim</title>
+<title>Regularised Inverse — RegularisedSol • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,14 @@
 
 
 
-<meta property="og:title" content="Compute the characteristic function of the stable laws — ComplexCF" />
+<meta property="og:title" content="Regularised Inverse — RegularisedSol" />
 
-<meta property="og:description" content="Theoretical characteristic function (CF) of stable laws under
-  parametrisation &amp;#8216;S0&amp;#8217; or &amp;#8216;S1&amp;#8217;. See Nolan (2013) for more
-  details." />
+<meta property="og:description" content="" />
+
+<meta property="og:description" content="Regularised solution of the (ill-posed) problem \(K\phi = r\) where
+  \(K\) is a \(n \times n\) matrix, \(r\) is a given vector of
+  length n. Users can choose one of the 3 schemes described in
+  Carrasco and Florens (2007)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,75 +107,106 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Compute the characteristic function of the stable laws</h1>
+    <h1>Regularised Inverse</h1>
     
-    <div class="hidden name"><code>CF.Rd</code></div>
+    <div class="hidden name"><code>RegularisedSol.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Theoretical characteristic function (CF) of stable laws under
-  parametrisation &#8216;S0&#8217; or &#8216;S1&#8217;. See Nolan (2013) for more
-  details.</p>
+    
+
+    <p>Regularised solution of the (ill-posed) problem \(K\phi = r\) where
+  \(K\) is a \(n \times n\) matrix, \(r\) is a given vector of
+  <code>length</code> n. Users can choose one of the 3 schemes described in
+  Carrasco and Florens (2007).</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ComplexCF</span>(<span class='no'>t</span>, <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
+    <pre class="usage"><span class='fu'>RegularisedSol</span>(<span class='no'>Kn</span>, <span class='no'>alphaReg</span>, <span class='no'>r</span>,
+               <span class='kw'>regularization</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Tikhonov"</span>, <span class='st'>"LF"</span>, <span class='st'>"cut-off"</span>),
+               <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>t</th>
-      <td><p>Vector of (real) numbers where the CF is evaluated ; numeric.</p></td>
+      <th>Kn</th>
+      <td><p>numeric \(n \times n\) matrix.</p></td>
     </tr>
     <tr>
-      <th>theta</th>
-      <td><p>Vector of parameters of the stable law; vector of length 4.</p></td>
+      <th>alphaReg</th>
+      <td><p>regularisation parameter; numeric in ]0,1].</p></td>
     </tr>
     <tr>
-      <th>pm</th>
-      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm = 0</code>
-    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
+      <th>r</th>
+      <td><p>numeric vector of <code>length</code> n.</p></td>
+    </tr>
+    <tr>
+      <th>regularization</th>
+      <td><p>regularization scheme to be used, one of <code>"Tikhonov"</code> (Tikhonov
+    scheme), <code>"LF"</code> (Landweber-Fridmann) and <code>"cut-off"</code>
+    (spectral cut-off). See Details.</p></td>
+    </tr>
+    <tr>
+      <th>&#8230;</th>
+      <td><p>the value of \(c\) used in the <code>"LF"</code> scheme. See
+    Carrasco and Florens(2007).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For more details about the different parametrisation of the CF, see
-  <em>Nolan(2013)</em>.</p>
+    
+    <p>Following Carrasco and Florens(2007), the regularised solution of the
+  problem \(K \phi=r\) is given by :
+  $$\varphi_{\alpha_{reg}} =
+    \sum_{j=1}^{n} q(\alpha_{reg},\mu_j)\frac{&lt;r,\psi_j &gt;}{\mu_j} \phi_j
+    ,
+  $$
+  where \(q\) is a (positive) real function with some regularity
+  conditions and \(\mu,\phi,\psi\) the singular decomposition of the
+  matrix \(K\).</p>
+<p>The <code>regularization</code> parameter defines the form of the function
+  \(q\). For example, the <code>"Tikhonov"</code> scheme defines
+  \(q(\alpha_{reg},\mu) = \frac{\mu^2}{\alpha_{reg}+\mu^2}\).</p>
+<p>When the matrix \(K\) is symmetric, the singular decomposition is
+  replaced by a spectral decomposition.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Vector of complex numbers with dimension <code><a href='https://www.rdocumentation.org/packages/base/topics/length'>length(t)</a></code>.</p>
+    <p>the regularised solution, a vector of length n.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><!-- % bibentry: nolan:2013 -->
-Nolan JP (2013).
-<em>Stable Distributions - Models for Heavy Tailed Data</em>.
-Birkhauser, Boston.
-In progress, Chapter 1 online at academic2.american.edu/\$sim\$jpnolan.
-<!-- % end:bibentry:  nolan:2013 --></p>
+    <p><!-- % bibentry: carrasco2007linear -->
+Carrasco M, Florens J and Renault E (2007).
+``Linear inverse problems in structural econometrics estimation based on spectral decomposition and regularization.''
+<em>Handbook of econometrics</em>, <b>6</b>, pp. 5633--5751.
+<!-- % end:bibentry:  carrasco2007linear --></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='jacCF.html'>jacobianComplexCF</a></code></p></div>
+    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/base/topics/solve'>solve</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## define the parameters</span>
-<span class='no'>nt</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
-<span class='no'>t</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>0.1</span>, <span class='fl'>3</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='no'>nt</span>)
-<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
-<span class='no'>pm</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
+    <pre class="examples"><div class='input'><span class='co'>## Adapted from R examples for Solve </span>
+<span class='co'>## We compare the result of the regularized sol to the expected solution</span>
 
-<span class='co'>## Compute the characteristic function</span>
-<span class='no'>CF</span> <span class='kw'>&lt;-</span> <span class='fu'>ComplexCF</span>(<span class='kw'>t</span> <span class='kw'>=</span> <span class='no'>t</span>, <span class='kw'>theta</span> <span class='kw'>=</span> <span class='no'>theta</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>)
-<span class='no'>CF</span></div><div class='output co'>#&gt;  [1] 0.968305811+0.033117936i 0.757986409+0.056143306i 0.525387123+0.026851945i
-#&gt;  [4] 0.332271933-0.005812349i 0.193104300-0.024061787i 0.102956859-0.027785107i
-#&gt;  [7] 0.049972446-0.023103095i 0.021746183-0.015850609i 0.008231545-0.009409216i
-#&gt; [10] 0.002521428-0.004930514i</div></pre>
+<span class='no'>hilbert</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>n</span>) { <span class='no'>i</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='no'>n</span>; <span class='fl'>1</span> / <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/outer'>outer</a></span>(<span class='no'>i</span> - <span class='fl'>1</span>, <span class='no'>i</span>, <span class='st'>"+"</span>)}
+
+<span class='no'>K_h8</span> <span class='kw'>&lt;-</span> <span class='fu'>hilbert</span>(<span class='fl'>8</span>);
+<span class='no'>r8</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='fl'>8</span>
+
+<span class='no'>alphaReg_robust</span> <span class='kw'>&lt;-</span> <span class='fl'>1e-4</span>
+<span class='no'>Sa8_robust</span> <span class='kw'>&lt;-</span> <span class='fu'>RegularisedSol</span>(<span class='no'>K_h8</span>,<span class='no'>alphaReg_robust</span>,<span class='no'>r8</span>,<span class='st'>"LF"</span>)
+
+<span class='no'>alphaReg_accurate</span> <span class='kw'>&lt;-</span> <span class='fl'>1e-10</span>
+<span class='no'>Sa8_accurate</span> <span class='kw'>&lt;-</span> <span class='fu'>RegularisedSol</span>(<span class='no'>K_h8</span>,<span class='no'>alphaReg_accurate</span>,<span class='no'>r8</span>,<span class='st'>"LF"</span>)
+
+<span class='co'>## when pre multiplied by K_h8, the expected solution is 1:8</span>
+<span class='co'>## User can check the influence of the choice of alphaReg</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Monte Carlo Simulation to investigate the optimal number of
-  points to use in the moment conditions. — ComputeBest_t • StableEstim</title>
+<title>Monte Carlo simulation to investigate the optimal number of
+  points to use in the moment conditions — ComputeBest_t • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -31,10 +31,10 @@
 
 
 
-<meta property="og:title" content="Monte Carlo Simulation to investigate the optimal number of
-  points to use in the moment conditions. — ComputeBest_t" />
+<meta property="og:title" content="Monte Carlo simulation to investigate the optimal number of
+  points to use in the moment conditions — ComputeBest_t" />
 
-<meta property="og:description" content="Runs Monte Carlo Simulation for different values of \(\alpha\) and
+<meta property="og:description" content="Runs Monte Carlo simulation for different values of \(\alpha\) and
   \(\beta\) and computes a specified number of t-points that minimises
   the determinant of the asymptotic covariance matrix." />
 <meta name="twitter:card" content="summary" />
@@ -106,40 +106,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Monte Carlo Simulation to investigate the optimal number of
-  points to use in the moment conditions.</h1>
+    <h1>Monte Carlo simulation to investigate the optimal number of
+  points to use in the moment conditions</h1>
     
     <div class="hidden name"><code>ComputeBest_t.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Runs Monte Carlo Simulation for different values of \(\alpha\) and
+    <p>Runs Monte Carlo simulation for different values of \(\alpha\) and
   \(\beta\) and computes a specified number of t-points that minimises
   the determinant of the asymptotic covariance matrix.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>ComputeBest_t</span>(<span class='kw'>AlphaBetaMatrix</span> <span class='kw'>=</span> <span class='no'>abMat</span>, <span class='kw'>nb_ts</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>10</span>, <span class='fl'>100</span>, <span class='fl'>10</span>),
-              <span class='kw'>alphaReg</span> <span class='kw'>=</span> <span class='fl'>0.001</span>,<span class='kw'>FastOptim</span><span class='kw'>=</span><span class='fl'>TRUE</span>,<span class='no'>...</span>)</pre>
+              <span class='kw'>alphaReg</span> <span class='kw'>=</span> <span class='fl'>0.001</span>, <span class='kw'>FastOptim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>AlphaBetaMatrix</th>
-      <td><p>Values of the parameter \(\alpha\) and  \(\beta\) from which
-    we simulate the data. By default, The values of \(\gamma\)
-    and \(\delta\) are set to 1 and 0 respectively; matrix \(2 \times n\).</p></td>
+      <td><p>values of the parameter \(\alpha\) and \(\beta\) from which we
+    simulate the data. By default, the values of \(\gamma\) and
+    \(\delta\) are set to 1 and 0, respectively;
+    a \(2 \times  n\) matrix.</p></td>
     </tr>
     <tr>
       <th>nb_ts</th>
-      <td><p>Vector of number of t-points to use for the minimisation;
-    default <code><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq(10,100,10)</a></code>.</p></td>
+      <td><p>vector of numbers of t-points to use for the minimisation;
+    default = <code><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq(10, 100, 10)</a></code>.</p></td>
     </tr>
     <tr>
       <th>alphaReg</th>
-      <td><p>Value of the regularisation parameter; numeric, default is 0.001.</p></td>
+      <td><p>value of the regularisation parameter; numeric, default = 0.001.</p></td>
     </tr>
     <tr>
       <th>FastOptim</th>
@@ -155,14 +156,14 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>list</code> containing slots from class <code><a href='BestTClass.html'>Best_t-class</a></code>
+    <p>a <code>list</code> containing slots from class <code><a href='Best_t-class.html'>Best_t-class</a></code>
   corresponding to one value of the parameters \(\alpha\) and
   \(\beta\).</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='ComputeBest_tau.html'>ComputeBest_tau</a></code>,
-  <code><a href='BestTClass.html'>Best_t-class</a></code></p></div>
+  <code><a href='Best_t-class.html'>Best_t-class</a></code></p></div>
     
 
   </div>

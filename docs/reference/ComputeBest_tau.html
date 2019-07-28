@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Run Monte Carlo Simulation to investigate the optimal \(\tau\) — ComputeBest_tau • StableEstim</title>
+<title>Run Monte Carlo simulation to investigate the optimal \(\tau\) — ComputeBest_tau • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,10 @@
 
 
 
-<meta property="og:title" content="Run Monte Carlo Simulation to investigate the optimal \(\tau\) — ComputeBest_tau" />
+<meta property="og:title" content="Run Monte Carlo simulation to investigate the optimal \(\tau\) — ComputeBest_tau" />
 
-<meta property="og:description" content="Runs Monte Carlo Simulation to investigate the optimal number of
-  points to use when one of the reduced spacing scheme is considered." />
+<meta property="og:description" content="Runs Monte Carlo simulation to investigate the optimal number of
+  points to use when one of the reduced spacing schemes is considered." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,15 +103,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Run Monte Carlo Simulation to investigate the optimal \(\tau\)</h1>
+    <h1>Run Monte Carlo simulation to investigate the optimal \(\tau\)</h1>
     
     <div class="hidden name"><code>ComputeBest_tau.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Runs Monte Carlo Simulation to investigate the optimal number of
-  points to use when one of the reduced spacing scheme is considered.</p>
+    <p>Runs Monte Carlo simulation to investigate the optimal number of
+  points to use when one of the reduced spacing schemes is considered.</p>
     
     </div>
 
@@ -124,30 +124,31 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>AlphaBetaMatrix</th>
-      <td><p>Values of the parameter \(\alpha\) and  \(\beta\) from which
-    we simulate the data. By default, The values of \(\gamma\)
-    and \(\delta\) are set to 1 and 0 respectively; matrix \(2 \times n\).</p></td>
+      <td><p>values of the parameter \(\alpha\) and \(\beta\) from which we
+    simulate the data. By default, the values of \(\gamma\) and
+    \(\delta\) are set to 1 and 0, respectively;
+    a \(2 \times n\) matrix.</p></td>
     </tr>
     <tr>
       <th>nb_ts</th>
-      <td><p>Vector of number of t-points to use for the minimisation;
-    default <code><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq(10,100,10)</a></code>.</p></td>
+      <td><p>vector of number of t-points to use for the minimisation;
+    default = <code><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq(10,100,10)</a></code>.</p></td>
     </tr>
     <tr>
       <th>tScheme</th>
-      <td><p>Scheme used to select the points where the moment conditions are
-    evaluated. User can choose between <code>"uniformOpt"</code>
-    (uniform optimal placement) and  <code>"ArithOpt"</code> (arithmetic optimal
-    placement). See function <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>.</p></td>
+      <td><p>scheme used to select the points where the moment conditions are
+    evaluated, one of <code>"uniformOpt"</code> (uniform optimal placement)
+    and <code>"ArithOpt"</code> (arithmetic optimal placement). See function
+    <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>.</p></td>
     </tr>
     <tr>
       <th>Constrained</th>
-      <td><p>Logical flag: if set to True lower and upper bands will be computed as
-    discussed function <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>.</p></td>
+      <td><p>logical flag: if set to True, lower and upper bands will be computed
+    as discussed for function <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>.</p></td>
     </tr>
     <tr>
       <th>alphaReg</th>
-      <td><p>Value of the regularisation parameter; numeric, default is 0.001.</p></td>
+      <td><p>value of the regularisation parameter; numeric, default = 0.001.</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
@@ -157,14 +158,14 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>list</code> containing slots from class <code><a href='BestTClass.html'>Best_t-class</a></code>
+    <p>a <code>list</code> containing slots from class <code><a href='Best_t-class.html'>Best_t-class</a></code>
   corresponding to one value of the parameters \(\alpha\) and
   \(\beta\).</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='ComputeBest_t.html'>ComputeBest_t</a></code>,
-  <code><a href='BestTClass.html'>Best_t-class</a></code></p></div>
+  <code><a href='Best_t-class.html'>Best_t-class</a></code></p></div>
     
 
   </div>

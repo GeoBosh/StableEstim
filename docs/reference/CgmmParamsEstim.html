@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The generalised method of moments with a continuum of moment conditions — CgmmParametersEstim • StableEstim</title>
+<title>Estimate parameters of stable laws using a Cgmm method — CgmmParametersEstim • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,13 +30,14 @@
 
 
 
-<meta property="og:title" content="The generalised method of moments with a continuum of moment conditions — CgmmParametersEstim" />
+<meta property="og:title" content="Estimate parameters of stable laws using a Cgmm method — CgmmParametersEstim" />
 
-<meta property="og:description" content="Cgmm method of Carrasco and Florens to estimate the 4 parameters of
-stable law based on a continuum of complex moment conditions (the modulus).
-Those moments are computed by matching the characteristic
-function with its sample counterpart. The resulting (ill-posed) estimation
-problem is solved by a regularisation technique." />
+<meta property="og:description" content="Estimate the four parameters of stable laws using generalised method
+  of moments based on a continuum of complex moment conditions (Cgmm)
+  due to Carrasco and Florens.  Those moments are computed by matching
+  the characteristic function with its sample counterpart. The resulting
+  (ill-posed) estimation problem is solved by a regularisation
+  technique." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,18 +107,19 @@ problem is solved by a regularisation technique." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>The generalised method of moments with a continuum of moment conditions</h1>
+    <h1>Estimate parameters of stable laws using a Cgmm method</h1>
     
     <div class="hidden name"><code>CgmmParamsEstim.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Cgmm method of Carrasco and Florens to estimate the 4 parameters of
-stable law based on a continuum of complex moment conditions (the modulus).
-Those moments are computed by matching the characteristic
-function with its sample counterpart. The resulting (ill-posed) estimation
-problem is solved by a regularisation technique.</p>
+    <p>Estimate the four parameters of stable laws using generalised method
+  of moments based on a continuum of complex moment conditions (Cgmm)
+  due to Carrasco and Florens.  Those moments are computed by matching
+  the characteristic function with its sample counterpart. The resulting
+  (ill-posed) estimation problem is solved by a regularisation
+  technique.</p>
     
     </div>
 
@@ -139,60 +141,61 @@ problem is solved by a regularisation technique.</p>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>Cgmm algorithm: "2S" is the two steps GMM proposed by Hansen(1982)
-    and the "Cue" and "IT" are respectively the continuous updated and the
-    iterative GMM proposed by Hansen, Eaton et Yaron (1996) and adapted
-    to the continuum case.</p></td>
+      <td><p>Cgmm algorithm: <code>"2S"</code> is the two steps GMM proposed by
+    Hansen(1982).  <code>"Cue"</code> and <code>"IT"</code> are respectively the
+    continuous updated and the iterative GMM proposed by Hansen, Eaton
+    et Yaron (1996) and adapted to the continuum case.</p></td>
     </tr>
     <tr>
       <th>alphaReg</th>
-      <td><p>Value of the regularisation parameter; numeric, default=0.01</p></td>
+      <td><p>Value of the regularisation parameter; numeric, default = 0.01.</p></td>
     </tr>
     <tr>
       <th>subdivisions</th>
-      <td><p>Number of subdivision used to compute the different
-   integrals involved in the computation of the objective function (to
-   minimise); numeric</p></td>
+      <td><p>Number of subdivisions used to compute the different
+    integrals involved in the computation of the objective function (to
+    minimise); numeric.</p></td>
     </tr>
     <tr>
       <th>IntegrationMethod</th>
-      <td><p>Numerical integration method to be used to approximate the (vectorial)
-   integrals. User can choose between the "Uniform" discretization or the
-   "Simpson"'s rule (the 3-point Newton-Cotes quadrature rule).</p></td>
+      <td><p>Numerical integration method to be used to approximate the
+    (vectorial) integrals. Users can choose between <code>"Uniform"</code>
+    discretization or the <code>"Simpson"</code>'s rule (the 3-point
+    Newton-Cotes quadrature rule).</p></td>
     </tr>
     <tr>
       <th>randomIntegrationLaw</th>
       <td><p>Probability measure associated to the Hilbert space spanned by the
-   moment conditions. See Carrasco and Florens (2003) for more details.</p></td>
+    moment conditions. See Carrasco and Florens (2003) for more details.</p></td>
     </tr>
     <tr>
       <th>s_min,s_max</th>
       <td><p>Lower and Upper bounds of the interval where the
-   moment conditions are considered; numeric</p></td>
+    moment conditions are considered; numeric.</p></td>
     </tr>
     <tr>
       <th>theta0</th>
-      <td><p>Initial guess for the 4 parameters values: vector of length 4</p></td>
+      <td><p>Initial guess for the 4 parameters values: vector of length 4.</p></td>
     </tr>
     <tr>
       <th>IterationControl</th>
-      <td><p>Only used with <code>type="IT"</code> or <code>type="Cue"</code> to control the
-   iterations. See details</p></td>
+      <td><p>Only used with <code>type = "IT"</code> or <code>type = "Cue"</code> to control the
+    iterations, see Details.</p></td>
     </tr>
     <tr>
       <th>pm</th>
-      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm=0</code> (the Nolan
-   &#8216;S0&#8217; parametrisation).</p></td>
+      <td><p>Parametrisation, an integer (0 or 1); default: <code>pm = 0</code> (Nolan's
+    &#8216;S0&#8217; parametrisation).</p></td>
     </tr>
     <tr>
       <th>PrintTime</th>
       <td><p>Logical flag; if set to TRUE, the estimation duration is printed out to
-   the screen in a readable format (h/min/sec).</p></td>
+    the screen in a readable format (h/min/sec).</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
       <td><p>Other arguments to be passed to the optimisation function and/or to
-   the integration function.</p></td>
+    the integration function.</p></td>
     </tr>
     </table>
     
@@ -202,45 +205,52 @@ problem is solved by a regularisation technique.</p>
   <!-- %\cr\cr -->
   The moment conditions are given by:
   $$g_t(X,\theta)=g(t,X;\theta)= e^{itX} - \phi_{\theta}(t)$$
-  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the same random variable \(X\), then:
-  $$\hat{g}_n(t,\theta)  = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta) =  \phi_n(t) -\phi_\theta(t)$$
-  where \(\phi_n(t)\) is the eCF associated to the sample
-  \(x_1,\dots,x_n\) and defined by \(\phi_n(t)= \frac{1}{n}
-    \sum_{j=1}^n e^{itX_j}\)
+  If one has a sample \(x_1,\dots,x_n\) of i.i.d realisations of the
+  same random variable \(X\), then: 
+  $$\hat{g}_n(t,\theta)  = \frac{1}{n}\sum_{i=1}^n g(t,x_i;\theta) =  \phi_n(t) -\phi_\theta(t),$$
+  where \(\phi_n(t)\) is the eCF associated with the sample
+  \(x_1,\dots,x_n\), defined by \(\phi_n(t)= \frac{1}{n}
+    \sum_{j=1}^n e^{itX_j}\).
   <!-- %\cr\cr -->
   <b>Objective function</b>
   <!-- %\cr\cr -->
   Following Carrasco and al (Proposition 3.4, 2007), the objective
   function to minimise is given by:
   $$obj(\theta)=\overline{\underline{v}^{\prime}}(\theta)[\alpha_{Reg} \mathcal{I}_n+C^2]^{-1}\underline{v}(\theta)$$
- where:</p><dl class='dl-horizontal'>
-   <dt>\(\underline{v}=[v_1,\ldots,v_n]^{\prime}\) ;</dt><dd><p>\(v_i(\theta)=\int_I \overline{g_i}(t;\hat{\theta}^1_n) \hat{g}(t;\theta) \pi(t) dt\)</p></dd>
-   <dt>\(I_n\)</dt><dd><p>is the identity matrix of size \(n\)</p></dd>
-   <dt>\(C\)</dt><dd><p>is a \(n \times n\) matrix with (i,j) elements given by
-     \(c_{ij}=\frac{1}{n-4}\int_I \overline{g_i}(t;\hat{\theta}^1_n) g_j(t;\hat{\theta}^1_n) \pi(t) dt\)</p></dd>
- </dl><p>To compute C and \(v_i()\) we will use the function
- <code><a href='Integrate.html'>IntegrateRandomVectorsProduct</a></code>.
- <!-- %\cr\cr -->
- <b>The IterationControl</b>
- <!-- %\cr\cr -->
- If <code>type="IT"</code> or <code>type="Cue"</code> is selected, user can control each
- iteration by setting up the <code>list</code> <code>IterationControl</code> which
- contains the following elements:</p><dl class='dl-horizontal'>
-   <dt><code>NbIter</code>:</dt><dd><p>maximum number of iteration. The loop stops when <code>NBIter</code>
-     is reached; default=10</p></dd>
-   <dt><code>PrintIterlogical</code>:</dt><dd><p>if set to TRUE the value of the current
-     parameter estimation is printed to the screen at each iteration; default=TRUE</p></dd>
-   <dt><code>RelativeErrMax</code>:</dt><dd><p>the loop stops if the relative error between two
-     consecutive estimation is smaller then
-     <code>RelativeErrMax</code>; default=1e-3</p></dd>
- </dl>
+  where:</p><dl class='dl-horizontal'>
+    <dt>
+      \(\underline{v} = [v_1,\ldots,v_n]^{\prime}\);</dt><dd><p>\(v_i(\theta)
+	= \int_I \overline{g_i}(t;\hat{\theta}^1_n) \hat{g}(t;\theta) \pi(t) dt\).</p></dd>
+    <dt>\(I_n\)</dt><dd><p>is the identity matrix of size \(n\).</p></dd>
+    <dt>\(C\)</dt><dd><p>is a \(n \times n\) matrix with \((i,j)\)th
+      element given by
+      \(c_{ij} = \frac{1}{n-4}\int_I
+	\overline{g_i}(t;\hat{\theta}^1_n) g_j(t;\hat{\theta}^1_n)
+	\pi(t) dt\).</p></dd>
+  </dl><p>To compute \(C\) and \(v_i()\) we will use the function
+  <code><a href='IntegrateRandomVectorsProduct.html'>IntegrateRandomVectorsProduct</a></code>.
+  <!-- %\cr\cr -->
+  <b>The IterationControl</b>
+  <!-- %\cr\cr -->
+  If <code>type = "IT"</code> or <code>type = "Cue"</code>, the user can control
+  each iteration using argument <code>IterationControl</code>, which should be
+  a <code>list</code> which contains the following elements:</p><dl class='dl-horizontal'>
+    <dt><code>NbIter</code>:</dt><dd><p>maximum number of iterations.
+      The loop stops when <code>NBIter</code> is reached; default = 10.</p></dd>
+    <dt><code>PrintIterlogical</code>:</dt><dd><p>if set to TRUE the values of the
+      current parameter estimates are printed to the screen at each
+      iteration; default = TRUE.</p></dd>
+    <dt><code>RelativeErrMax</code>:</dt><dd><p>the loop stops if the relative error
+      between two consecutive estimation steps is smaller then
+      <code>RelativeErrMax</code>; default = 1e-3.</p></dd>
+  </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a list with the following elements:</p>
-<dt>Estim</dt><dd><p>output of the optimisation function</p></dd>
-  <dt>duration</dt><dd><p>estimation duration in numerical format</p></dd>
-  <dt>method</dt><dd><p><code>character</code> describing the method used</p></dd>
+    <p>a list with the following elements:</p>
+<dt>Estim</dt><dd><p>output of the optimisation function,</p></dd>
+  <dt>duration</dt><dd><p>estimation duration in numerical format,</p></dd>
+  <dt>method</dt><dd><p><code>character</code> describing the method used.</p></dd>
 
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -277,9 +287,9 @@ Mimeo. University of Montreal.
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='EstimFct.html'>Estim</a></code>,
+    <div class='dont-index'><p><code><a href='Estim.html'>Estim</a></code>,
   <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>,
-  <code><a href='Integrate.html'>IntegrateRandomVectorsProduct</a></code></p></div>
+  <code><a href='IntegrateRandomVectorsProduct.html'>IntegrateRandomVectorsProduct</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -329,7 +339,7 @@ Mimeo. University of Montreal.
 #&gt; 
 #&gt; 
 #&gt; $duration
-#&gt; [1] 1.078
+#&gt; [1] 1.085
 #&gt; 
 #&gt; $method
 #&gt; [1] "Cgmm_type=2S_alphaReg=0.01_OptimAlgo=nlminb_subdivisions=20_IntegrationMethod=Uniform_randomIntegrationLaw=unif_s_min=0_s_max=1"

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Main estimation function — Estim • StableEstim</title>
+<title>Maximum likelihood (ML) method — MLParametersEstim • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,11 @@
 
 
 
-<meta property="og:title" content="Main estimation function — Estim" />
+<meta property="og:title" content="Maximum likelihood (ML) method — MLParametersEstim" />
 
-<meta property="og:description" content="Main estimation function which computes all the information about the
-estimator (and its asymptotic properties). It allows the user to choose
-the preferred method and several related options." />
+<meta property="og:description" content="Uses the numerical ML approach described by Nolan to estimate the 4
+  parameters of stable law. The method may be slow for large sample size
+  due to the use of numerical optimisation routine." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -104,96 +104,93 @@ the preferred method and several related options." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Main estimation function</h1>
+    <h1>Maximum likelihood (ML) method</h1>
     
-    <div class="hidden name"><code>EstimFct.Rd</code></div>
+    <div class="hidden name"><code>MLParametersEstim.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Main estimation function which computes all the information about the
-estimator (and its asymptotic properties). It allows the user to choose
-the preferred method and several related options.</p>
+    <p>Uses the numerical ML approach described by Nolan to estimate the 4
+  parameters of stable law. The method may be slow for large sample size
+  due to the use of numerical optimisation routine.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>Estim</span>(<span class='kw'>EstimMethod</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ML"</span>, <span class='st'>"GMM"</span>, <span class='st'>"Cgmm"</span>,<span class='st'>"Kout"</span>), <span class='no'>data</span>, <span class='kw'>theta0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-      <span class='kw'>ComputeCov</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>HandleError</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>MLParametersEstim</span>(<span class='no'>x</span>, <span class='kw'>theta0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>PrintTime</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>EstimMethod</th>
-      <td><p>Estimation method to be used. User can choose between ML,
-    GMM, Cgmm or Koutrouvelis regression method.</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>Data used to perform the estimation: vector of length n.</p></td>
+      <th>x</th>
+      <td><p>data used to perform the estimation: vector of length n.</p></td>
     </tr>
     <tr>
       <th>theta0</th>
-      <td><p>Initial guess for the 4 parameters values: If <code>NULL</code> the
-    Kogon-McCulloch method is called, see
-    <code><a href='KogonParamsEstim.html'>IGParametersEstim</a></code>; vector of length 4.</p></td>
+      <td><p>initial guess for the 4 parameters values: If <code>NULL</code>, the
+    Kogon-McCulloch method is called, see <code><a href='IGParametersEstim.html'>IGParametersEstim</a></code>;
+    a vector of length 4.</p></td>
     </tr>
     <tr>
-      <th>ComputeCov</th>
-      <td><p>Logical flag: If set to TRUE, the asymptotic covariance matrix (4x4) is
-    computed (except for the Koutrouvelis method).</p></td>
+      <th>pm</th>
+      <td><p>parametrisation, an integer (0 or 1); default: <code>pm=0</code>
+    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
     </tr>
     <tr>
-      <th>HandleError</th>
-      <td><p>Logical flag: If set to TRUE and if an error occurs during the estimation
-    procedure, the computation will carry on and NA will be returned. Useful
-    for Monte Carlo simulations, see <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code></p></td>
+      <th>PrintTime</th>
+      <td><p>logical flag; if set to TRUE, the estimation duration is printed out
+    to the screen in a readable format (h/min/sec).</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
-      <td><p>Other arguments to be passed to the estimation function or the
-    asymptotic confidence level. See details.</p></td>
+      <td><p>Other argument to be passed to the optimisation function.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><!-- %\cr\cr -->
-  This function should be used in priority for estimation purpose as it
-  provides more information about the estimator. However, user needs to
-  pass the appropriate parameters to the selected method in
-  <code>&#8230;</code>. See the documentation of the selected method.
-  <!-- %\cr\cr -->
-  <b>Asymptotic Confidence Interval</b>:
-  <!-- %\cr\cr -->
-  The <em>normal</em> asymptotic confidence interval (C.I) are computed.
-  The user can set the <em>level</em> of confidence by inputting the
-  <code>level</code> argument (in the <code>&#8230;</code>); default
-  <code>level</code>=0.95. The theoretical justification for asymptotic
-  normal C.I could be find in the references of each method. Note the
-  C.I are not computed for the Koutrouvelis regression method.</p>
+    <p>The function performs the minimisation of the numerical (-)log-density
+  of stable laws computed by function <code>dstable</code> from package
+  <span class="pkg">stabledist</span>.</p>
+<p>After testing several optimisation routines, we have found out that
+  the <code>"L-BFGS-B"</code> algorithm performs better with the ML method
+  (faster, more accurate).</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns an object of class <code>Estim</code>. See <code>Estim</code> for
-  more details.</p>
+    <p>a list with the following elements:</p>
+<dt>Estim </dt><dd><p>output of the optimisation function,</p></dd>
+  <dt>duration</dt><dd><p>estimation duration in a numerical format,</p></dd>
+  <dt>method</dt><dd><p><code>character</code> describing the method used.</p></dd>
+
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p><!-- % bibentry: nolan2001maximum -->
+Nolan J (2001).
+``Maximum likelihood estimation and diagnostics for stable distributions.''
+<em>L'evy processes: theory and applications</em>, pp. 379--400.
+<!-- % end:bibentry:  nolan2001maximum --></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='CgmmParamsEstim.html'>CgmmParametersEstim</a></code>, <code><a href='GMMParametersEstim.html'>GMMParametersEstim</a></code>,
- <code><a href='MLEstimFct.html'>MLParametersEstim</a></code>, <code><a href='KoutParamsEstim.html'>KoutParametersEstim</a></code></p></div>
+    <div class='dont-index'><p><code><a href='Estim.html'>Estim</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## general inputs</span>
-<span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.45</span>, <span class='fl'>0.55</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
+    <pre class="examples"><div class='input'><span class='no'>theta</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.5</span>, <span class='fl'>0.4</span>, <span class='fl'>1</span>, <span class='fl'>0</span>)
 <span class='no'>pm</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>2345</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rstable</span>(<span class='fl'>200</span>, <span class='no'>theta</span>[<span class='fl'>1</span>], <span class='no'>theta</span>[<span class='fl'>2</span>], <span class='no'>theta</span>[<span class='fl'>3</span>], <span class='no'>theta</span>[<span class='fl'>4</span>], <span class='no'>pm</span>)
+<span class='co'>## 50 points does not give accurate estimation</span>
+<span class='co'>## but it makes estimation fast for installation purposes</span>
+<span class='co'>## use at least 200 points to get decent results.</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1333</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rstable</span>(<span class='fl'>50</span>, <span class='no'>theta</span>[<span class='fl'>1</span>], <span class='no'>theta</span>[<span class='fl'>2</span>], <span class='no'>theta</span>[<span class='fl'>3</span>], <span class='no'>theta</span>[<span class='fl'>4</span>], <span class='no'>pm</span>)
 
-<span class='no'>objKout</span> <span class='kw'>&lt;-</span> <span class='fu'>Estim</span>(<span class='kw'>EstimMethod</span> <span class='kw'>=</span> <span class='st'>"Kout"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>,
-                     <span class='kw'>ComputeCov</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>HandleError</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-                     <span class='kw'>spacing</span> <span class='kw'>=</span> <span class='st'>"Kout"</span>)</div></pre>
+<span class='co'>## This example takes &gt; 30 sec hence commented out</span></div><span class='co'># NOT RUN {</span>
+  <span class='no'>ML</span> <span class='kw'>&lt;-</span> <span class='fu'>MLParametersEstim</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='no'>pm</span>, <span class='kw'>PrintTime</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># }</span><div class='input'>## see the Examples folder for more examples.
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -203,6 +200,8 @@ the preferred method and several related options.</p>
       <li><a href="#details">Details</a></li>
 
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#references">References</a></li>
 
       <li><a href="#see-also">See also</a></li>
       

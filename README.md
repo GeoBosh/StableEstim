@@ -5,7 +5,7 @@
 The [latest stable version](https://cran.r-project.org/package=StableEstim) is on
 CRAN.
 
-    install_packages("StableEstim")
+    install.packages("StableEstim")
 
 You can install the [development version](https://github.com/GeoBosh/StableEstim) of
 `StableEstim` from Github:

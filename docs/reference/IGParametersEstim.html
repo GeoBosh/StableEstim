@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Default set of parameters to pass to the <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>. — get.abMat • StableEstim</title>
+<title>Estimate parameters of stable laws by Kogon and McCulloch methods — IGParametersEstim • StableEstim</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,11 @@
 
 
 
-<meta property="og:title" content="Default set of parameters to pass to the <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>. — get.abMat" />
+<meta property="og:title" content="Estimate parameters of stable laws by Kogon and McCulloch methods — IGParametersEstim" />
 
-<meta property="og:description" content="Default set of parameters to pass to the Estim_Simulation
-  inspired by the one used by Koutrevelis (1980) in his simulation procedure." />
+<meta property="og:description" content="Kogon regression method is used together with the McCulloch quantile
+  method to provide initial estimates of parameters of stable
+  distributions." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,33 +104,88 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Default set of parameters to pass to the <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>.</h1>
+    <h1>Estimate parameters of stable laws by Kogon and McCulloch methods</h1>
     
-    <div class="hidden name"><code>abMat.Rd</code></div>
+    <div class="hidden name"><code>IGParametersEstim.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Default set of parameters to pass to the <code><a href='Estim_Simulation.html'>Estim_Simulation</a></code>
-  inspired by the one used by Koutrevelis (1980) in his simulation procedure.</p>
+    <p>Kogon regression method is used together with the McCulloch quantile
+  method to provide initial estimates of parameters of stable
+  distributions.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>abMat</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>IGParametersEstim</span>(<span class='no'>x</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>data used to perform the estimation: vector of length n.</p></td>
+    </tr>
+    <tr>
+      <th>pm</th>
+      <td><p>parametrisation, an integer (0 or 1); default: <code>pm = 0</code>
+    (Nolan's &#8216;S0&#8217; parametrisation).</p></td>
+    </tr>
+    <tr>
+      <th>&#8230;</th>
+      <td><p>other arguments. Currently not used.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The parameters \(\gamma\) and \(\delta\) are estimated using the
+  McCulloch(1986) quantile method from <span class="pkg">fBasics</span>. The data is
+  rescaled using those estimates and used to perform the Kogon
+  regression method to estimate \(\alpha\) and \(\beta\).</p>
+    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a 2-columns matrix containing a wide range of parameters
-  \(\alpha\) and \(\beta\) covering the entire parameters space.</p>
+    <p>a vector of length 4 containing the estimates of the 4 parameters.</p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p><!-- % bibentry: kogon1998characteristic -->
+Kogon SM and Williams DB (1998).
+``Characteristic function based estimation of stable distribution parameters.''
+<em>A practical guide to heavy tailed data</em>, pp. 311--335.
+<!-- % end:bibentry:  kogon1998characteristic -->
+  <!-- % bibentry: mcculloch1986simple -->
+McCulloch JH (1986).
+``Simple consistent estimators of stable distribution parameters.''
+<em>Communications in Statistics-Simulation and Computation</em>, <b>15</b>(4), pp. 1109--1136.
+<!-- % end:bibentry:  mcculloch1986simple --></p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='Estim.html'>Estim</a></code>, <code><a href='McCullochParametersEstim.html'>McCullochParametersEstim</a></code></p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>rstable</span>(<span class='fl'>200</span>, <span class='fl'>1.2</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>)
+<span class='fu'>IGParametersEstim</span>(<span class='no'>x</span>, <span class='kw'>pm</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt;     alpha      beta     gamma     delta 
+#&gt; 1.1843062 0.5841752 0.9112995 0.0107126 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#value">Value</a></li>
-          </ul>
+
+      <li><a href="#references">References</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
