@@ -1,4 +1,9 @@
-[![CRANStatusBadge](http://www.r-pkg.org/badges/version/StableEstim)](https://cran.r-project.org/package=StableEstim)
+<!-- badges: start -->
+  [![CRANStatusBadge](http://www.r-pkg.org/badges/version/StableEstim)](https://cran.r-project.org/package=StableEstim)
+  [![R-CMD-check](https://github.com/GeoBosh/StableEstim/workflows/R-CMD-check/badge.svg)](https://github.com/GeoBosh/StableEstim/actions)
+<!-- badges: end -->
+
+
 
 # Installing StableEstim
 
