@@ -1,4 +1,4 @@
-import(methods, Matrix, MASS, xtable, testthat)
+import(methods, Matrix)
 
 importFrom(stats, dnorm, pnorm, qnorm, rnorm,
 	          runif,
@@ -10,7 +10,9 @@ importFrom(utils, read.csv, read.table, toLatex, write.table, packageVersion)
 importFrom(stabledist, dstable, rstable, pstable, qstable)
 importFrom(fBasics, .qStableFit)
 importFrom(numDeriv, jacobian)
-
+importFrom(MASS, lm.gls)
+importFrom(testthat, expectation, expect_that, expect_equal)
+importFrom(xtable, xtable, "align<-", "digits<-", "display<-")
 
 exportClass(Estim)
 exportClass(Best_t)
@@ -44,5 +46,8 @@ export(
     TexSummary,
     ConcatFiles,
     ComputeBest_t,
-    ComputeBest_tau
+    ComputeBest_tau,
+
+    ## re-exports
+    rstable
     )
