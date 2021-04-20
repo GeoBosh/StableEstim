@@ -220,9 +220,10 @@
     \sum_{j=1}^n e^{itX_j}\).
   <!-- %\cr\cr -->
   <b>Objective function</b>
-  <!-- %\cr\cr -->
-  Following Carrasco and al (Proposition 3.4, 2007), the objective
-  function to minimise is given by:
+  <!-- %\cr\cr --></p>  
+<p>Following Carrasco et al. (2007, Proposition 3.4)
+,
+  the objective function to minimise is given by:
   $$obj(\theta)=\overline{\underline{v}^{\prime}}(\theta)[\alpha_{Reg} \mathcal{I}_n+C^2]^{-1}\underline{v}(\theta)$$
   where:</p><dl>
     <dt>
@@ -263,31 +264,23 @@
 
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><!-- % bibentry: carrasco2000generalization -->
-Carrasco M and Florens J (2000).
-``Generalization of GMM to a continuum of moment conditions.''
-<em>Econometric Theory</em>, <b>16</b>(06), pp. 797--834.
-<!-- % end:bibentry:  carrasco2000generalization --></p>
-<p><!-- % bibentry: carrasco2002efficient -->
-Carrasco M and Florens J (2002).
-``Efficient GMM estimation using the empirical characteristic function.''
-<em>IDEI Working Paper</em>, <b>140</b>.
-<!-- % end:bibentry:  carrasco2002efficient --></p>
-<p><!-- % bibentry: carrasco2003asymptotic -->
-Carrasco M and Florens J (2003).
-``On the asymptotic efficiency of GMM.''
-<em>IDEI Working Paper</em>, <b>173</b>.
-<!-- % end:bibentry:  carrasco2003asymptotic --></p>
-<p><!-- % bibentry: carrasco2007efficientCont -->
-Carrasco M, Chernov M, Florens J and Ghysels E (2007).
-``Efficient estimation of general dynamic models with a continuum of moment conditions.''
-<em>Journal of Econometrics</em>, <b>140</b>(2), pp. 529--573.
-<!-- % end:bibentry:  carrasco2007efficientCont --></p>
-<p><!-- % bibentry: carrasco2010efficient -->
-Carrasco M and Kotchoni R (2010).
-``Efficient estimation using the characteristic function.''
-Mimeo. University of Montreal.
-<!-- % end:bibentry:  carrasco2010efficient --></p>
+    
+  
+<p>Carrasco M, Florens J (2000).
+&#8220;Generalization of GMM to a continuum of moment conditions.&#8221;
+<em>Econometric Theory</em>, <b>16</b>(06), 797--834.</p>
+<p>Carrasco M, Florens J (2002).
+&#8220;Efficient GMM estimation using the empirical characteristic function.&#8221;
+<em>IDEI Working Paper</em>, <b>140</b>.</p>
+<p>Carrasco M, Florens J (2003).
+&#8220;On the asymptotic efficiency of GMM.&#8221;
+<em>IDEI Working Paper</em>, <b>173</b>.</p>
+<p>Carrasco M, Chernov M, Florens J, Ghysels E (2007).
+&#8220;Efficient estimation of general dynamic models with a continuum of moment conditions.&#8221;
+<em>Journal of Econometrics</em>, <b>140</b>(2), 529--573.</p>
+<p>Carrasco M, Kotchoni R (2010).
+&#8220;Efficient estimation using the characteristic function.&#8221;
+Mimeo. University of Montreal.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p><code>nlminb</code> as used to minimise the Cgmm objective function.</p>
@@ -317,7 +310,7 @@ Mimeo. University of Montreal.
                           randomIntegrationLaw <span class='op'>=</span> <span class='va'>randomIntegrationLaw</span>, 
                           s_min <span class='op'>=</span> <span class='fl'>0</span>, s_max <span class='op'>=</span> <span class='fl'>1</span>, theta0 <span class='op'>=</span> <span class='cn'>NULL</span>, 
                           pm <span class='op'>=</span> <span class='va'>pm</span>, PrintTime <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "CgmmParametersEstim_2S :duration= 0  h, 0  min, 2  sec. "</div><div class='input'><span class='va'>twoS</span>
+</div><div class='output co'>#&gt; [1] "CgmmParametersEstim_2S :duration= 0  h, 0  min, 1  sec. "</div><div class='input'><span class='va'>twoS</span>
 </div><div class='output co'>#&gt; $Estim
 #&gt; $Estim$par
 #&gt; [1]  1.3193378  0.6995646  0.7875786 -0.1791584
@@ -346,7 +339,7 @@ Mimeo. University of Montreal.
 #&gt; 
 #&gt; 
 #&gt; $duration
-#&gt; [1] 1.543
+#&gt; [1] 1.388
 #&gt; 
 #&gt; $method
 #&gt; [1] "Cgmm_type=2S_alphaReg=0.01_OptimAlgo=nlminb_subdivisions=20_IntegrationMethod=Uniform_randomIntegrationLaw=unif_s_min=0_s_max=1"
