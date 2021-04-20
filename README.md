@@ -4,7 +4,6 @@
 <!-- badges: end -->
 
 
-
 # Installing StableEstim
 
 The [latest stable version](https://cran.r-project.org/package=StableEstim) is on
