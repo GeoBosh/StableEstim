@@ -13,7 +13,8 @@ importFrom(numDeriv, jacobian)
 importFrom(MASS, lm.gls)
 importFrom(testthat, expectation, expect_that, expect_equal)
 importFrom(xtable, xtable, "align<-", "digits<-", "display<-")
-
+importFrom(Rdpack, reprompt)
+    
 exportClass(Estim)
 exportClass(Best_t)
 

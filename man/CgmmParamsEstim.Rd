@@ -87,8 +87,9 @@ CgmmParametersEstim(x, type = c("2S", "IT", "Cue"), alphaReg = 0.01,
   %\cr\cr
   \bold{Objective function}
   %\cr\cr
-  Following Carrasco and al (Proposition 3.4, 2007), the objective
-  function to minimise is given by:
+  
+  Following \insertCite{@@carrasco2007efficientCont, Proposition 3.4;textual}{StableEstim},
+  the objective function to minimise is given by:
   \deqn{obj(\theta)=\overline{\underline{v}^{\prime}}(\theta)[\alpha_{Reg} \mathcal{I}_n+C^2]^{-1}\underline{v}(\theta)}
   where:
   \describe{
@@ -134,35 +135,16 @@ CgmmParametersEstim(x, type = c("2S", "IT", "Cue"), alphaReg = 0.01,
 }
 
 \references{
-  % bibentry: carrasco2000generalization
-Carrasco M and Florens J (2000).
-``Generalization of GMM to a continuum of moment conditions.''
-\emph{Econometric Theory}, \bold{16}(06), pp. 797--834.
-% end:bibentry:  carrasco2000generalization
+  
+  \insertRef{carrasco2000generalization}{StableEstim}
 
-  % bibentry: carrasco2002efficient
-Carrasco M and Florens J (2002).
-``Efficient GMM estimation using the empirical characteristic function.''
-\emph{IDEI Working Paper}, \bold{140}.
-% end:bibentry:  carrasco2002efficient
+  \insertRef{carrasco2002efficient}{StableEstim}
 
-  % bibentry: carrasco2003asymptotic
-Carrasco M and Florens J (2003).
-``On the asymptotic efficiency of GMM.''
-\emph{IDEI Working Paper}, \bold{173}.
-% end:bibentry:  carrasco2003asymptotic
+  \insertRef{carrasco2003asymptotic}{StableEstim}
 
-  % bibentry: carrasco2007efficientCont
-Carrasco M, Chernov M, Florens J and Ghysels E (2007).
-``Efficient estimation of general dynamic models with a continuum of moment conditions.''
-\emph{Journal of Econometrics}, \bold{140}(2), pp. 529--573.
-% end:bibentry:  carrasco2007efficientCont
+  \insertRef{carrasco2007efficientCont}{StableEstim}
 
-  % bibentry: carrasco2010efficient
-Carrasco M and Kotchoni R (2010).
-``Efficient estimation using the characteristic function.''
-Mimeo. University of Montreal.
-% end:bibentry:  carrasco2010efficient
+  \insertRef{carrasco2010efficient}{StableEstim}
 }
 \note{
   \code{nlminb} as used to minimise the Cgmm objective function.
