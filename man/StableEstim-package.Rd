@@ -53,7 +53,12 @@ Tarak Kharrat, Georgi N. Boshnakov
   using MC simulations.
 
 }
-
+\seealso{
+  \code{fBasics:::.mleStableFit},
+  \code{fBasics:::.qStableFit}
+  
+  package \pkg{stabledist}
+}
 \references{% bibentry:all
 Carrasco M and Florens J (2000).
 ``Generalization of GMM to a continuum of moment conditions.''
@@ -83,10 +88,9 @@ Nolan J (2001).
 ``Maximum likelihood estimation and diagnostics for stable distributions.''
 \emph{L'evy processes: theory and applications}, pp. 379--400.
 
-Nolan JP (2013).
-\emph{Stable Distributions - Models for Heavy Tailed Data}.
-Birkhauser, Boston.
-In progress, Chapter 1 online at academic2.american.edu/\$sim\$jpnolan.
+
+\insertRef{nolan:2012}{StableEstim}
+
 
 Hansen LP (1982).
 ``Large sample properties of generalized method of moments estimators.''
@@ -94,7 +98,7 @@ Hansen LP (1982).
 
 Hansen LP, Heaton J and Yaron A (1996).
 ``Finite-sample properties of some alternative GMM estimators.''
-\emph{Journal of Business \& Economic Statistics}, \bold{14}(3), pp. 262--280.
+\emph{Journal of Business & Economic Statistics}, \bold{14}(3), pp. 262--280.
 
 Feuerverger A and McDunnough P (1981).
 ``On efficient inference in symmetric stable laws and processes.''
@@ -112,11 +116,5 @@ Besbeas P and Morgan B (2008).
 ``Improved estimation of the stable laws.''
 \emph{Statistics and Computing}, \bold{18}(2), pp. 219--231.
 % end:bibentry:all
-}
-\seealso{
-  \code{fBasics:::.mleStableFit},
-  \code{fBasics:::.qStableFit}
-  
-  package \pkg{"stabledist"}
 }
 \keyword{package}

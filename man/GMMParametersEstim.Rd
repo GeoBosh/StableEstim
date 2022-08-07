@@ -213,7 +213,7 @@ Hansen LP (1982).
   % bibentry: hansen1996finite
 Hansen LP, Heaton J and Yaron A (1996).
 ``Finite-sample properties of some alternative GMM estimators.''
-\emph{Journal of Business \& Economic Statistics}, \bold{14}(3), pp. 262--280.
+\emph{Journal of Business & Economic Statistics}, \bold{14}(3), pp. 262--280.
 % end:bibentry:  hansen1996finite
 
   % bibentry: feuerverger1981efficient

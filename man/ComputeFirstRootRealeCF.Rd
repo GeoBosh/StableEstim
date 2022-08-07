@@ -43,11 +43,8 @@ ComputeFirstRootRealeCF(x, ..., tol = 0.001, maxIter = 100,
 \value{
   \code{numeric}: first zero of the real part of the eCF.
 }
-\references{ % bibentry: welsh1986implementing
-Welsh A (1986).
-``Implementing empirical characteristic function procedures.''
-\emph{Statistics \& probability letters}, \bold{4}(2), pp. 65--67.
-% end:bibentry:  welsh1986implementing
+\references{
+  \insertRef{welsh1986implementing}{StableEstim}
 }
 \seealso{
   \code{\link{ComplexCF}}

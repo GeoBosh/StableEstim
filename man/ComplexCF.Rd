@@ -25,18 +25,13 @@ ComplexCF(t, theta, pm = 0)
 }
 \details{
   For more details about the different parametrisation of the CF, see
-  \emph{Nolan(2013)}.
+  \emph{Nolan(2012)}.
 }
 \value{
   vector of complex numbers with dimension \code{length(t)}.
 }
 \references{
-  % bibentry: nolan:2013
-Nolan JP (2013).
-\emph{Stable Distributions - Models for Heavy Tailed Data}.
-Birkhauser, Boston.
-In progress, Chapter 1 online at academic2.american.edu/\$sim\$jpnolan.
-% end:bibentry:  nolan:2013
+  \insertRef{nolan:2012}{StableEstim}
 }
 
 \seealso{

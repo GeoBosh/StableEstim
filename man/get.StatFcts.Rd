@@ -4,7 +4,7 @@
   Default functions used to produce the statistical summary
 }
 \description{
-  Default functions used to produce the statistical summmary in the
+  Default functions used to produce the statistical summary in the
   Monte Carlo simulations.
 }
 \usage{
