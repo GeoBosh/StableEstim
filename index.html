@@ -24,6 +24,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -36,18 +38,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">StableEstim</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -57,7 +53,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/GeoBosh/StableEstim/">
+  <a href="https://github.com/GeoBosh/StableEstim/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -76,18 +72,18 @@
   <div class="contents col-md-9">
 
 
-<div id="installing-stableestim" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#installing-stableestim" class="anchor"></a>Installing StableEstim</h1></div>
-<p>The <a href="https://cran.r-project.org/package=StableEstim">latest stable version</a> is on CRAN.</p>
+<div class="section level1">
+<div class="page-header"><h1 id="installing-stableestim">Installing StableEstim<a class="anchor" aria-label="anchor" href="#installing-stableestim"></a>
+</h1></div>
+<p>The <a href="https://cran.r-project.org/package=StableEstim" class="external-link">latest stable version</a> is on CRAN.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"StableEstim"</span>)</span></code></pre></div>
-<p>You can install the <a href="https://github.com/GeoBosh/StableEstim">development version</a> of <code>StableEstim</code> from Github:</p>
+<p>You can install the <a href="https://github.com/GeoBosh/StableEstim" class="external-link">development version</a> of <code>StableEstim</code> from Github:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(devtools)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="kw">install_github</span>(<span class="st">"GeoBosh/StableEstim"</span>)</span></code></pre></div>
 </div>
-<div id="overview" class="section level1">
-<h1 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h1>
+<div class="section level1">
+<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h1>
 <p>A collection of methods to estimate the four parameters of stable distributions. The package also provides functions to compute characteristic functions and tools to run Monte Carlo simulations.</p>
 <p>The main functions of package <code>StableEstim</code> are briefly described below:</p>
 <ul>
@@ -96,8 +92,8 @@
 <p>estimation functions for specific methods: these functions are called by <code><a href="reference/Estim.html">Estim()</a></code> but can be used directly, as well. The methods provided so far are:</p>
 <ul>
 <li><p>the maximum-likelihood (<code><a href="reference/MLParametersEstim.html">MLParametersEstim()</a></code>),</p></li>
-<li><p>the generalised method of moments with a finite (<code><a href="reference/GMMParametersEstim.html">GMMParametersEstim()</a></code>) or continuum moment conditions (<code><a href="reference/CgmmParametersEstim.html">CgmmParametersEstim()</a></code>),</p></li>
-<li><p>the iterative Koutrouvelis regression method (<code><a href="reference/KoutParametersEstim.html">KoutParametersEstim()</a></code>),</p></li>
+<li><p>the generalised method of moments with a finite (<code><a href="reference/GMMParametersEstim.html">GMMParametersEstim()</a></code>) or continuum moment conditions (<code><a href="reference/CgmmParamsEstim.html">CgmmParametersEstim()</a></code>),</p></li>
+<li><p>the iterative Koutrouvelis regression method (<code><a href="reference/KoutParamsEstim.html">KoutParametersEstim()</a></code>),</p></li>
 <li><p>the fast Kogon-McCulloch method used for first guess estimation (<code>IGParametersEstim</code>).</p></li>
 </ul>
 </li>
@@ -111,47 +107,57 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=StableEstim">https://​cloud.r-project.org/​package=StableEstim</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/GeoBosh/StableEstim/">https://​github.com/​GeoBosh/​StableEstim/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/GeoBosh/StableEstim/issues">https://​github.com/​GeoBosh/​StableEstim/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=StableEstim" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/GeoBosh/StableEstim/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/GeoBosh/StableEstim/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 2)</li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing StableEstim</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Tarak Kharrat <br><small class="roles"> Author </small>  </li>
 <li>Georgi N. Boshnakov <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=StableEstim"><img src="http://www.r-pkg.org/badges/version/StableEstim" alt="CRANStatusBadge"></a></li>
-<li><a href="https://github.com/GeoBosh/StableEstim/actions"><img src="https://github.com/GeoBosh/StableEstim/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://cran.r-project.org/package=StableEstim" class="external-link"><img src="http://www.r-pkg.org/badges/version/StableEstim" alt="CRANStatusBadge"></a></li>
+<li><a href="https://github.com/GeoBosh/StableEstim/actions" class="external-link"><img src="https://github.com/GeoBosh/StableEstim/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Tarak Kharrat, Georgi N. Boshnakov.</p>
+  <p></p>
+<p>Developed by Tarak Kharrat, Georgi N. Boshnakov.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -159,6 +165,8 @@
 
   
 
+
+  
 
   </body>
 </html>
