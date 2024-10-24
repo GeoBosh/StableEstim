@@ -1,3 +1,8 @@
+url: https://geobosh.github.io/StableEstim
+
+template:
+  bootstrap: 5
+
 reference:
   - title: "StableEstim overview"
     contents:
