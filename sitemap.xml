@@ -1,114 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Best_t-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/CgmmParamsEstim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ComplexCF.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ComputeBest_t.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ComputeBest_tau.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ComputeDuration.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ComputeFirstRootRealeCF.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ComputeStatObjectFromFiles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ConcatFiles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Estim-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Estim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Estim_Simulation.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GMMParametersEstim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/IGParametersEstim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/IntegrateRandomVectorsProduct.html</loc>
-  </url>
-  <url>
-    <loc>/reference/KoutParamsEstim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MLParametersEstim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/McCullochParametersEstim.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PrintDuration.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PrintEstimatedRemainingTime.html</loc>
-  </url>
-  <url>
-    <loc>/reference/RegularisedSol.html</loc>
-  </url>
-  <url>
-    <loc>/reference/StableEstim-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/StableEstim_reexports.html</loc>
-  </url>
-  <url>
-    <loc>/reference/StatFcts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TexSummary.html</loc>
-  </url>
-  <url>
-    <loc>/reference/expect_almost_equal.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get.StatFcts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get.abMat.html</loc>
-  </url>
-  <url>
-    <loc>/reference/getTime_.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/jacobianComplexCF.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sampleComplexCFMoment.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sampleRealCFMoment.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://geobosh.github.io/StableEstim/404.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/authors.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/index.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/news/index.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/Best_t-class.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/CgmmParamsEstim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ComplexCF.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ComputeBest_t.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ComputeBest_tau.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ComputeDuration.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ComputeFirstRootRealeCF.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ComputeStatObjectFromFiles.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/ConcatFiles.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/Estim-class.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/Estim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/Estim_Simulation.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/GMMParametersEstim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/IGParametersEstim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/IntegrateRandomVectorsProduct.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/KoutParamsEstim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/MLParametersEstim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/McCullochParametersEstim.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/PrintDuration.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/PrintEstimatedRemainingTime.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/RegularisedSol.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/StableEstim-package.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/StableEstim_reexports.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/StatFcts.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/TexSummary.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/expect_almost_equal.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/get.StatFcts.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/get.abMat.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/getTime_.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/index.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/jacobianComplexCF.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/sampleComplexCFMoment.html</loc></url>
+<url><loc>https://geobosh.github.io/StableEstim/reference/sampleRealCFMoment.html</loc></url>
 </urlset>
+

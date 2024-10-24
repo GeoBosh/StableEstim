@@ -1,6 +1,8 @@
-pandoc: 2.7.3
-pkgdown: 2.0.6
+pandoc: 3.1.11
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-08-07T09:03Z
-
+last_built: 2024-10-24T11:57Z
+urls:
+  reference: https://geobosh.github.io/StableEstim/reference
+  article: https://geobosh.github.io/StableEstim/articles
