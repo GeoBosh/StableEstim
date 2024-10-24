@@ -1,7 +1,7 @@
 Package: StableEstim
 Type: Package
 Title: Estimate the Four Parameters of Stable Laws using Different Methods
-Version: 2.3
+Version: 2.3.9000
 Depends: R(>= 2.10.0)
 Imports: stats, utils, graphics, numDeriv, xtable, fBasics, MASS,
          methods, Matrix, stabledist, testthat, Rdpack
