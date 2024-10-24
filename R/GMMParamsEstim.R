@@ -5,7 +5,7 @@ GMMParametersEstim <- function(x,algo=c("2SGMM","ITGMM","CueGMM"),
                                theta0=NULL,IterationControl=list(),pm=0,
                                PrintTime=FALSE,...){
 
-    if (is.null(theta0)) theta0 <- IGParametersEstim(x,pm) 
+    if (is.null(theta0)) theta0 <- IGParametersEstim(x,pm)
     algo <- match.arg(algo)
     regularization <- match.arg(regularization)
     WeightingMatrix <- match.arg(WeightingMatrix)
@@ -16,7 +16,7 @@ GMMParametersEstim <- function(x,algo=c("2SGMM","ITGMM","CueGMM"),
                                regularization=regularization,
                                WeightingMatrix=WeightingMatrix,
                                t_scheme=t_scheme,...)
-    
+
     Estim <- switch(algo,
                     "2SGMM"={Compute2SGMMParametersEstim(x=x,theta0=theta0,alphaReg=alphaReg,
                                                          regularization=regularization,
@@ -39,7 +39,7 @@ GMMParametersEstim <- function(x,algo=c("2SGMM","ITGMM","CueGMM"),
         PrintDuration(ComputeDuration(t_init,getTime_()),
                       CallingFct)
     }
-    
+
     list(Estim=Estim$Estim,duration=ComputeDuration(t_init,getTime_(),TRUE),
          method=method,tEstim=Estim$tEstim)
 }
@@ -50,16 +50,16 @@ Compute2SGMMParametersEstim <- function(x,theta0,alphaReg,regularization,Weighti
     AllCurrentEstim <- ComputeCurrentEstim(t_scheme=t_scheme,theta0=theta0,x=x,alphaReg=alphaReg,
                                            regularization=regularization,WeightingMatrix="Id",
                                            pm=pm,...)
-                                  
+
     theta1 <- (AllCurrentEstim$OptInfo)$par
     t <- AllCurrentEstim$t
-    
+
     ProvidedWeightingMatrix <- ComputeWeightingMatrix(t,theta1,x,WeightingMatrix,pm,...)
     CurrentEstimOptInfo <- ComputeCurrentEstim(t_scheme=t_scheme,theta0=theta1,x=x,alphaReg=alphaReg,
                                                regularization=regularization,WeightingMatrix="provided",
                                                pm=pm,...,
                                                ProvidedWeightingMatrix=ProvidedWeightingMatrix)$OptInfo
-    
+
     list(Estim=CurrentEstimOptInfo,tEstim=t)
 }
 
@@ -74,7 +74,7 @@ ComputeITGMMParametersEstim <- function(x,theta0,alphaReg,regularization,Weighti
     t <- AllCurrentEstim$t
     PrevEstimParVal <- theta1
     RelativeErr=Control$RelativeErrMax+5
-    
+
     while((iter < Control$NbIter) && (RelativeErr > Control$RelativeErrMax) ){
         ProvidedWeightingMatrix <- ComputeWeightingMatrix(t=t,theta=PrevEstimParVal,x=x,
                                                           WeightingMatrix=WeightingMatrix,
@@ -90,9 +90,9 @@ ComputeITGMMParametersEstim <- function(x,theta0,alphaReg,regularization,Weighti
         CurrentEstimOptInfo <- AllCurrentEstim$OptInfo; t <- AllCurrentEstim$t
         CurrentEstimParVal <- CurrentEstimOptInfo$par
 
-        if (Control$PrintIter) PrintIteration(CurrentEstimParVal,iter,Control$NbIter) 
+        if (Control$PrintIter) PrintIteration(CurrentEstimParVal,iter,Control$NbIter)
 
-        RelativeErr <- abs(CurrentEstimParVal-PrevEstimParVal)
+        RelativeErr <- max(abs(CurrentEstimParVal-PrevEstimParVal))
         PrevEstimParVal <- CurrentEstimParVal
         iter=iter+1
     }
@@ -105,7 +105,7 @@ ComputeCueGMMParametersEstim <- function(x,theta0,alphaReg,regularization,Weight
     Control <- checkIterationControl(IterationControl)
     PrevEstimParVal <- theta0
     RelativeErr=Control$RelativeErrMax+5
-     
+
     while((iter < Control$NbIter) && (RelativeErr > Control$RelativeErrMax) ){
         AllCurrentEstim <- ComputeCurrentEstim(t_scheme=t_scheme,theta0=PrevEstimParVal,
                                                x=x,alphaReg=alphaReg,regularization=regularization,
@@ -116,7 +116,7 @@ ComputeCueGMMParametersEstim <- function(x,theta0,alphaReg,regularization,Weight
 
         if (Control$PrintIter) PrintIteration(CurrentEstimParVal,iter,Control$NbIter)
 
-        RelativeErr <- abs(CurrentEstimParVal-PrevEstimParVal)
+        RelativeErr <- max(abs(CurrentEstimParVal-PrevEstimParVal))
         PrevEstimParVal <- CurrentEstimParVal
         iter=iter+1
     }
@@ -131,7 +131,7 @@ checkIterationControl <- function(IterationControl){
                         TRUE,IterationControl$PrintIter)
     RelativeErrMax <- ifelse(is.null(IterationControl$RelativeErrMax),
                              1e-3,IterationControl$RelativeErrMax)
-    
+
     list(NbIter=NbIter,PrintIter=PrintIter,RelativeErrMax=RelativeErrMax)
 }
 
@@ -142,7 +142,7 @@ ComputeCurrentEstim <- function(t_scheme,theta0,x,alphaReg,regularization,
                   regularization=regularization,
                   WeightingMatrix=WeightingMatrix,
                   pm=pm,...)
-    
+
     optOutput <- nlminb(start=theta0,objective=ComputeObjective,
                         gradient = NULL, hessian = NULL,
                         t=t,x=x,alphaReg=alphaReg,
@@ -151,13 +151,13 @@ ComputeCurrentEstim <- function(t_scheme,theta0,x,alphaReg,regularization,
                         t_scheme=t_scheme,pm=pm,...,
                         lower = c(eps, -1+eps, 0+eps, -Inf),
                         upper = c(2-eps, 1-eps,  Inf,  Inf))
-    
+
     list(OptInfo=optOutput,t=t)
 }
 
 ComputeObjective <- function(theta,t,x,alphaReg,regularization,
                              WeightingMatrix,t_scheme,pm,...){
-    
+
     K <-ComputeWeightingMatrix(t=t,theta=theta,x=x,
                                WeightingMatrix=WeightingMatrix,
                                pm=pm,...)
@@ -165,7 +165,7 @@ ComputeObjective <- function(theta,t,x,alphaReg,regularization,
     gbar <- sampleRealCFMoment(x=x,t=t,theta=theta,pm=pm)
     K1gbar <- ComputeInvKbyG(K=K,G=gbar,alphaReg=alphaReg,
                              regularization=regularization)
-    
+
     obj <- crossprod(gbar,K1gbar)
     as.numeric(obj)
 }
@@ -194,13 +194,13 @@ ComputeRegularizedK1G <- function(K,G,alphaReg,regularization){
 #This is actually the Inverse of the Variance: Called V in the report.
 GMMasymptoticVarianceEstim <- function(...,t,theta,x,WeightingMatrix,
                                        alphaReg=0.1,regularization="Tikhonov",pm=0){
-   
+
     K <- ComputeWeightingMatrix(t=t,theta=theta,x=x,WeightingMatrix=WeightingMatrix,pm=pm,...)
     B <- jacobianSampleRealCFMoment(t,theta,pm)
 
     fct <- function(G) ComputeInvKbyG(K=K,G=G,alphaReg=alphaReg,regularization=regularization)
     invKcrossB <- apply(X=B,MARGIN=2,FUN=fct)
-   
+
     crossprod(B,invKcrossB)
 }
 
@@ -224,7 +224,7 @@ test.GMMasymptoticVarianceEstim <- function(){
 .asymptoticVarianceEstimGMM <- function(data,EstimObj,...){
     V <- solve(GMMasymptoticVarianceEstim(theta=EstimObj$Estim$par,
                                           t=EstimObj$tEstim,
-                                          x=data,...))/length(data)                            
+                                          x=data,...))/length(data)
     NameParamsObjects(V)
 }
 
@@ -235,7 +235,7 @@ getGMMmethodName <- function(algo,alphaReg,regularization,WeightingMatrix,
     args <- list(...)
     if (!is.null(args$nb_t)) nt <- args$nb_t
     else if (!is.null(args$t_free)) nt <- length(args$t_free)
-        
+
     paste(algo,
           paste("nb_t=",nt,sep=""),
           paste("alphaReg=",alphaReg,sep=""),
