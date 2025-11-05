@@ -10,7 +10,8 @@ Authors@R: c( person(given = "Tarak", family = "Kharrat",
                      email = "Tarak.Kharrat@liverpool.ac.uk"),
               person(given = c("Georgi", "N."), family = "Boshnakov", 
                      role = c("aut", "cre"), 
-                     email = "georgi.boshnakov@manchester.ac.uk") )
+                     email = "georgi.boshnakov@manchester.ac.uk",
+		     comment = c(ORCID = "0000-0003-2839-346X")) )
 Description: Estimate the four parameters of stable laws using maximum
              likelihood method, generalised method of moments with
              finite and continuum number of points, iterative
