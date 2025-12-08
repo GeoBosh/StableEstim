@@ -3,11 +3,13 @@ Type: Package
 Title: Estimate the Four Parameters of Stable Laws using Different Methods
 Version: 2.3.9000
 Depends: R(>= 2.10.0)
-Imports: stats, utils, graphics, numDeriv, xtable, fBasics, MASS,
-         methods, Matrix, stabledist, testthat, Rdpack
+Imports: stats, utils, graphics, numDeriv, fBasics, MASS,
+         methods, stabledist, Rdpack
+Suggests: testthat (>= 1.0.0), xtable
 Authors@R: c( person(given = "Tarak", family = "Kharrat",
                      role = c("aut"), 
-                     email = "Tarak.Kharrat@liverpool.ac.uk"),
+                     email = "tarak@realanalytics.co.uk",
+		     comment = c(ORCID = "0000-0001-9399-6174")),
               person(given = c("Georgi", "N."), family = "Boshnakov", 
                      role = c("aut", "cre"), 
                      email = "georgi.boshnakov@manchester.ac.uk",
@@ -20,7 +22,7 @@ Description: Estimate the four parameters of stable laws using maximum
              matrix, confidence intervals) are also provided.
 License: GPL (>= 2)
 RdMacros: Rdpack
-URL: https://geobosh.github.io/StableEstim/ (doc), https://github.com/GeoBosh/StableEstim (devel)
+URL: https://geobosh.github.io/StableEstim/ (doc), https://CRAN.R-project.org/package=StableEstim
 BugReports: https://github.com/GeoBosh/StableEstim/issues
 Collate: cte.R ExternalPackageInterface.R ToolsFct.R Interpolation.R
         RegularInverse.R stableCF.R CFbasedMoment.R WeightingMatrix.R

@@ -79,18 +79,19 @@ PrintEstimatedRemainingTime <- function(ActualIter,ActualIterStartTime,TotalIter
 
         type <- identical(answer, TRUE)
         ## 2016-07-26 TODO: make this unconditiona in the near future.
-        if(packageVersion("testthat") >= "1.0.0")
-            ## should be in c("success", "failure", "error", "skip", "warning")
-            type <- if(type) "success"
-                    else "failure"
+        ## 2025-12-08: done (but required testhat >= 1.0.0 in DESCRIPTION)
+        ##
+        ## should be in c("success", "failure", "error", "skip", "warning")
+        type <- if(type) "success"
+                else "failure"
 
-        expectation(type,
-                    paste("absolute error= ",diff ," > ", tolExpect))
+        testthat::expectation(type,
+                              paste("absolute error= ",diff ," > ", tolExpect))
     }
 }
 
 expect_almost_equal <- function(x,y,tolExpect=1e-3){
-    expect_that(x,.almost_equal(y,tolExpect))}
+    testthat::expect_that(x,.almost_equal(y,tolExpect))}
 
 #===================================================================================================================
 #----------------------------------- Computation -------------------------------------------------------------------

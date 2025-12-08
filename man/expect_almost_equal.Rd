@@ -25,7 +25,8 @@ expect_almost_equal(x, y, tolExpect = 0.001)
 }
 
 \seealso{
-  \code{expect_that},\code{testthat}
+  \code{expect_that},
+  \code{testthat}
 }
 \examples{
 x <- 1.1

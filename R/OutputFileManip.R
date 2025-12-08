@@ -142,13 +142,13 @@ TexSummary <- function(obj,files=NULL,sep_=",",FctsToApply=StatFcts,
     
     for (i in 1:length(par_index)){
         mat <- obj[[par_index[i]]]
-        tobj <- xtable(x=mat,
-                       caption=caption[i],
-                       label=label[i])
+        tobj <- xtable::xtable(x=mat,
+                               caption=caption[i],
+                               label=label[i])
         
-        digits(tobj) <- format$digits 
-        align(tobj)  <- format$align
-        display(tobj) <- format$display
+        xtable::digits(tobj) <- format$digits 
+        xtable::align(tobj)  <- format$align
+        xtable::display(tobj) <- format$display
         output[[par_index[i]]] <- toLatex(tobj,include.rownames=FALSE)
     }
     output

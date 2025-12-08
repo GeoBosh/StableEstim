@@ -27,7 +27,7 @@ test.DataVar.case <- function(t,theta,x){
 test.id.case <- function(t,theta,x){
     Kestim <- ComputeWeightingMatrix(t,theta,x,"Id")
     trKestim <- sum(diag(Kestim))
-    expect_equal(trKestim,2*length(t))
+    testthat::expect_equal(trKestim,2*length(t))
 }
 
 ComputeWeightingMatrix <- function(t,theta,x,WeightingMatrix,pm=0,...){

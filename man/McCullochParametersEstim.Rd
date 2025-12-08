@@ -15,12 +15,11 @@ McCullochParametersEstim(x)
   }
 }
 \details{
-  The code is a modified version of function \code{.qStableFit} from
+  \code{McCullochParametersEstim} is a wrapper for function \code{.qStableFit} from
   package \pkg{fBasics}. 
 }
 \value{
-  \code{numeric} of length 4, represening the value of the 4
-  parameters. 
+  \code{numeric} of length 4, represening the values of the 4 parameters
 }
 \references{
   % bibentry: mcculloch1986simple

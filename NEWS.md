@@ -8,6 +8,10 @@
   warning in recent versions of R. Thanks to Cedric Juessen who reported and
   diagnosed it. (fixes #1)
 
+* moved some dependencies from Imports to Suggests. Removed Matrix from the
+  list of dependencies, as it is not used (in recent versions?).
+
+* several other changes, not visible to the user.
 
 
 ## StableEstim 2.3

@@ -10,7 +10,7 @@ IGParametersEstim<-function(x,pm=0,...) {
 }
 
 McCullochParametersEstim<-function(x){
-        tr <- tryCatch(.qStableFit(x, doplot=FALSE),
+        tr <- tryCatch(fBasics::.qStableFit(x, doplot=FALSE),
                        error=function(e)e) 
         err <- inherits(tr, "error")
         if (!err) {

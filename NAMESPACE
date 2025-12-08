@@ -1,18 +1,18 @@
-import(methods, Matrix)
+#import(methods, Matrix)
+import(methods)
 
 importFrom(stats, dnorm, pnorm, qnorm, rnorm,
-	          runif,
-                  integrate, uniroot, optimize)
+	          runif, integrate, uniroot, optimize)
 importFrom(graphics, plot)
 importFrom(stats, dunif, lm, nlminb, optim, sd, var)
 importFrom(utils, read.csv, read.table, toLatex, write.table, packageVersion)
 
 importFrom(stabledist, dstable, rstable, pstable, qstable)
-importFrom(fBasics, .qStableFit)
+#importFrom(fBasics, .qStableFit)
 importFrom(numDeriv, jacobian)
 importFrom(MASS, lm.gls)
-importFrom(testthat, expectation, expect_that, expect_equal)
-importFrom(xtable, xtable, "align<-", "digits<-", "display<-")
+#importFrom(testthat, expectation, expect_that, expect_equal)   # in Suggests 2025-12-08
+#importFrom(xtable, xtable, "align<-", "digits<-", "display<-") # in Suggests 2025-12-08
 importFrom(Rdpack, reprompt)
     
 exportClass(Estim)
