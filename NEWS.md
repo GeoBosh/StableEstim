@@ -1,4 +1,4 @@
-## StableEstim 2.3.9000
+## StableEstim 2.4
 
 * Now `RelativeErr` (used in the condition to terminate the loop) in
   `ComputeITGMMParametersEstim()`and `ComputeCueGMMParametersEstim()` (called by
