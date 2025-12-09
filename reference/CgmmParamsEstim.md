@@ -230,7 +230,7 @@ twoS
 #> 
 #> 
 #> $duration
-#> [1] 0.943
+#> [1] 0.931
 #> 
 #> $method
 #> [1] "Cgmm_type=2S_alphaReg=0.01_OptimAlgo=nlminb_subdivisions=20_IntegrationMethod=Uniform_randomIntegrationLaw=unif_s_min=0_s_max=1"
