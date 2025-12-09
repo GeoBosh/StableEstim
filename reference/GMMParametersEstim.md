@@ -309,7 +309,7 @@ suppressWarnings(GMMParametersEstim(
 #> 
 #> $duration
 #> elapsed 
-#>   0.092 
+#>   0.095 
 #> 
 #> $method
 #> [1] "2SGMM_nb_t=12_alphaReg=0.005_regularization=cut-off_WeightingMatrix=OptAsym_t_scheme=free_OptimAlgo=nlminb"
@@ -355,7 +355,7 @@ GMMParametersEstim(
 #> 
 #> $duration
 #> elapsed 
-#>    0.52 
+#>   0.537 
 #> 
 #> $method
 #> [1] "CueGMM_nb_t=12_alphaReg=0.005_regularization=cut-off_WeightingMatrix=OptAsym_t_scheme=free_OptimAlgo=nlminb"

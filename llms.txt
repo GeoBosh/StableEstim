@@ -12,8 +12,7 @@ version](https://github.com/GeoBosh/StableEstim) of `StableEstim` from
 Github:
 
 ``` R
-library(devtools)
-install_github("GeoBosh/StableEstim")
+remotes::install_github("GeoBosh/StableEstim")
 ```
 
 # Overview

@@ -14,12 +14,12 @@ Source:
 
 Kharrat T, Boshnakov GN (2025). *StableEstim: Estimate the Four
 Parameters of Stable Laws using Different Methods*. R package version
-2.3.9000, <https://geobosh.github.io/StableEstim/>.
+2.4, <https://geobosh.github.io/StableEstim/>.
 
     @Manual{,
       title = {StableEstim: Estimate the Four Parameters of Stable Laws using Different Methods},
       author = {Tarak Kharrat and Georgi N. Boshnakov},
       year = {2025},
-      note = {R package version 2.3.9000},
+      note = {R package version 2.4},
       url = {https://geobosh.github.io/StableEstim/},
     }
