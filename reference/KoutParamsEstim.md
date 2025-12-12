@@ -221,7 +221,7 @@ KoutParametersEstim(x = x, theta0 = theta0,
 #> attr(,"response")
 #> [1] 1
 #> attr(,".Environment")
-#> <environment: 0x556bddb8c5a0>
+#> <environment: 0x556bfe1749d8>
 #> attr(,"predvars")
 #> list(y, w)
 #> attr(,"dataClasses")
@@ -369,7 +369,7 @@ KoutParametersEstim(x = x, theta0 = theta0,
 #> attr(,"response")
 #> [1] 1
 #> attr(,".Environment")
-#> <environment: 0x556bdd906b30>
+#> <environment: 0x556bfded1c88>
 #> attr(,"predvars")
 #> list(z, u, Om)
 #> attr(,"dataClasses")
@@ -438,7 +438,7 @@ KoutParametersEstim(x = x, theta0 = theta0,
 #> 
 #> $duration
 #> elapsed 
-#>    0.26 
+#>   0.254 
 #> 
 #> $method
 #> [1] "Koutrouvelis_spacing=Kout"

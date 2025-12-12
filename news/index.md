@@ -2,6 +2,8 @@
 
 ## StableEstim 2.4
 
+CRAN release: 2025-12-09
+
 - Now `RelativeErr` (used in the condition to terminate the loop) in
   `ComputeITGMMParametersEstim()`and `ComputeCueGMMParametersEstim()`
   (called by
